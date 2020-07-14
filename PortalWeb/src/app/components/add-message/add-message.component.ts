@@ -66,6 +66,7 @@ export class AddMessageComponent implements OnInit {
 
     this.documentForm = this.formBuilder.group({
       Title: ["", Validators.required],
+      Group : ["", Validators.required],
       Attachment: [],
     });
 
@@ -122,11 +123,11 @@ export class AddMessageComponent implements OnInit {
     if (e.length != null)
       this.documentFile = e;
   }
-  // uploadEmployeePicture(e) {
-  //   if (e.length != 0) {
-  //     this.selectedFile = e;
-  //   }
-  // }
+  uploadEmployeePicture(e) {
+    if (e.length != 0) {
+      this.selectedFile = e;
+    }
+  }
 
   remove(fileToRemove) {
     for (var i = 0; i < this.ArrayOfFiles.length; i++) {
@@ -167,6 +168,7 @@ export class AddMessageComponent implements OnInit {
       this.resetForm();
       this.service.refreshMessageList();
       this.closeClick();
+      location.reload();
     },
       err => {
         this.toastr.error("Pokušajte ponovo", "Došlo je do greške");
@@ -174,7 +176,7 @@ export class AddMessageComponent implements OnInit {
   }
 
   onSubmitEmployees() {
-    this.serviceEmp.postUser(this.employeeForm.value, this.documentFile).subscribe(res => {
+    this.serviceEmp.postUser(this.employeeForm.value, this.selectedFile).subscribe(res => {
       this.clearMessageForm();
       this.toastr.success("Uspješno");
       this.resetForm();
@@ -212,5 +214,17 @@ export class AddMessageComponent implements OnInit {
       });
   }
 
+  onSubmitDocument(){
+    this.serviceLite.postDocument(this.documentForm.value, this.documentFile).subscribe(res => {
+      this.clearMessageForm();
+      this.toastr.success("Uspješno");
+      this.resetForm();
+      this.service.refreshMessageList();
+      this.closeClick();
+    },
+      err => {
+        this.toastr.error("Pokušajte ponovo", "Došlo je do greške");
+      });
+  }
 
 }

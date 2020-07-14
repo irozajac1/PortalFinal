@@ -30,7 +30,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   deleteMeeting(id) {
-    return this.scheduleService.deleteSchedule(id).subscribe();
+    return this.scheduleService.deleteSchedule(id);
   }
 
 

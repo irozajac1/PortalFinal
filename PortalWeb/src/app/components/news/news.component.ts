@@ -36,4 +36,13 @@ export class NewsComponent implements OnInit {
       }
     });
   }
+
+  editNews(news): void {
+    const dialogRef = this.dialog.open(EditNewsComponent, {
+      width: "800px",
+      data: {
+        news
+      }
+    });
+  }
 }

@@ -1,3 +1,19 @@
-<p>
-  edit-news works!
-</p>
+<form [formGroup]="newsForm" class="example-form" (ngSubmit)="onSubmitNews(newsForm.value)">
+  <!-- <mat-form-field *ngIf="getEmail == 'muhamed.skikic@mibo.ba'" class="selectedgroup" > -->
+
+  <mat-card class="messagecontet">
+    <mat-form-field class="message-full-width" appearance="standard">
+      <input matInput placeholder="Sadržaj" formControlName="Content">
+    </mat-form-field>
+
+    <mat-form-field class="message-full-width" appearance="standard">
+      <input matInput placeholder="Datum" type="date" formControlName="DateOfEvent">
+    </mat-form-field>
+  </mat-card>
+
+  <div class="sendmessagebtn" style="margin-top: 10px;">
+    <button mat-mini-fab color="white" matTooltip="Pošalji" type="submit">
+      <mat-icon aria-hidden="false" aria-label=" " class="sendicon">send</mat-icon>
+    </button>
+  </div>
+</form>

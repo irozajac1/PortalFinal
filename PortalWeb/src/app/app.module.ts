@@ -119,7 +119,8 @@ import { EditNewsComponent } from './components/edit-news/edit-news.component';
     ApprovedMessageComponent,
     OpenMessageComponent,
     EditEmployeeComponent,
-    EditLiteratureComponent
+    EditLiteratureComponent,
+    EditNewsComponent
   ],
   providers: [
     DetailService,

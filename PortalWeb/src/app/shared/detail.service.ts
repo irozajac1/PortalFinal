@@ -51,7 +51,6 @@ export class DetailService {
 
   postSchedule(formDataDocument): Observable<any> {
     this.schedule.Url = formDataDocument.Link;
-    this.schedule.Title = formDataDocument.Title;
     return this.http.post(this.rootURL + "/Meeting/PostLink", this.schedule);
   }
 

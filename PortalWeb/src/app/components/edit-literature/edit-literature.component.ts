@@ -11,7 +11,7 @@ import { LiteratureService } from 'src/app/shared/literature.service';
 export class EditLiteratureComponent implements OnInit {
   editLiteratureForm: FormGroup;
   recvData: any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, public LiteratureService: LiteratureService
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public LiteratureService: LiteratureService
   ) {
     this.recvData = data;
   }

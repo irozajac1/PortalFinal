@@ -16,26 +16,31 @@ export class LiteratureService {
     return this.http.get(this.rootURL + "/Literature");
   }
 
-  deleteLiterature(id){
-    return this.http.delete(this.rootURL + "/Literature/deleteLiterature", id);
+  deleteLiterature(id) {
+    return this.http.delete(this.rootURL + "/Literature/deleteLiterature/" + id);
   }
 
-  updateLiterature(){
+  updateLiterature() {
 
   }
 
   postLiterature(Literature: any, files: File[]): Observable<any> {
     var formData: FormData = new FormData();
-
     formData.append("Title", Literature.Title);
     formData.append("Link", Literature.Link);
     formData.append("Email", localStorage.getItem("upn"));
-
     for (let file of files) {
       formData.append("Files", file, file.name);
     }
-
     return this.http.post(this.rootURL + "/Literature/SendLiterature", formData);
+  }
+
+  postDocument(document: any, documentFile: File): Observable<any> {
+    var formData: FormData = new FormData();
+    formData.append("Title", document.title);
+    formData.append("Group", document.group);
+    formData.append("Files", documentFile[0], documentFile[0].name);
+    return this.http.post(this.rootURL + "/Documentation/sendDocumentation", formData);
   }
 
 }

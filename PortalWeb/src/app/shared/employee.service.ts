@@ -22,9 +22,13 @@ export class EmployeeService {
     file: File
   ): Observable<any> {
 
-    var formData: FormData = new FormData();
+    var formData: FormData = new FormData(); 
 
-    formData.append("EmployeePicture", file, file.name);
+    console.log(fromDataUser, file);
+
+    if (file.name != "") {
+      formData.append("EmployeePicture", file[0], file[0].name);
+    }
 
     formData.append("FirstName", fromDataUser.Firstname);
     formData.append("LastName", fromDataUser.Lastname);

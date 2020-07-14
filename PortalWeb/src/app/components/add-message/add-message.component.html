@@ -140,7 +140,7 @@
     </div>
   </mat-card>
 
-  <div class="sendmessagebtn" style="margin-top: 10px;"> 
+  <div class="sendmessagebtn" style="margin-top: 10px;">
     <button mat-mini-fab color="white" matTooltip="Pošalji" type="submit">
       <mat-icon aria-hidden="false" aria-label=" " class="sendicon">send</mat-icon>
     </button>
@@ -161,7 +161,7 @@
     </mat-form-field>
   </mat-card>
 
-  <div class="sendmessagebtn" style="margin-top: 10px;"> 
+  <div class="sendmessagebtn" style="margin-top: 10px;">
     <button mat-mini-fab color="white" matTooltip="Pošalji" type="submit">
       <mat-icon aria-hidden="false" aria-label=" " class="sendicon">send</mat-icon>
     </button>
@@ -176,15 +176,13 @@
     <mat-form-field class="message-full-width">
       <textarea matInput name="Title" formControlName="Title" placeholder="Napišite naslov dokumenta"
         [matTextareaAutosize] required></textarea>
-
-      <div class="sendmessagebtn">
-        <button mat-mini-fab color="white" matTooltip="Pošalji" type="submit">
-          <mat-icon aria-hidden="false" aria-label=" " class="sendicon">send</mat-icon>
-        </button>
-      </div>
-
       <mat-error *ngIf="documentForm.invalid">*Polje je obavezno</mat-error>
     </mat-form-field>
+
+    <mat-form-field class="message-full-width" appearance="standard">
+      <input matInput placeholder="Grupa" formControlName="Group">
+    </mat-form-field>
+    
     <div class="upload-btn-wrapper">
       <button class="btn">Uvezi datoteke</button>
       <input #file type="file" id="file" (change)="uploadDoc(file.files)">
@@ -198,6 +196,12 @@
           </mat-chip-list>
         </span>
       </div>
+    </div>
+    
+    <div class="sendmessagebtn">
+      <button mat-mini-fab color="white" matTooltip="Pošalji" type="submit">
+        <mat-icon aria-hidden="false" aria-label=" " class="sendicon">send</mat-icon>
+      </button>
     </div>
   </mat-card>
 </form>
@@ -239,7 +243,7 @@
     </mat-form-field>
     <div class="upload-btn-wrapper">
       <button class="btn">Uvezi sliku</button>
-      <input #file formControlName="EmployeePicture" type="file" id="file" (change)="uploadFileSave(file.files)">
+      <input #file formControlName="EmployeePicture" type="file" id="file" (change)="uploadEmployeePicture(file.files)">
       <div>
         <!-- *ngFor="let item of ArrayOfFiles; let index = index" -->
         <span id="chips" *ngFor="let item of ArrayOfFiles; let index = index">

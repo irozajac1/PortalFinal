@@ -17,7 +17,8 @@ export class ScheduleService {
   }
 
   deleteSchedule(id) {
-    return this.http.delete(this.rootURL + "/Meeting/DeleteLink", id);
+    console.log(id);
+    return this.http.delete(this.rootURL + "/Meeting/DeleteLink/" + id).subscribe();
   }
 
   postSchedule(schedule: Meetings): Observable<any> {

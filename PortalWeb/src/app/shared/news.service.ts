@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { News } from './message-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,12 @@ export class NewsService {
   }
 
   postNews(news) {
-    return this.http.post(this.rootURL + "/News/PostSomeNews", news).subscribe();
+    return this.http.post(this.rootURL + "/News/PostSomeNews", news);
+  }
+
+  editNews(news: News, id){
+    console.log(news, id);
+    return this.http.put(this.rootURL + "/News/" + id, news).subscribe();
   }
 
   deleteNews(id){
