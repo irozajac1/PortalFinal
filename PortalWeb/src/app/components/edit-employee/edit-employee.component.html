@@ -1,0 +1,43 @@
+<form [formGroup]="editEmployeeForm" (ngSubmit)="editEmployee(this.recvData.emp.Id)">
+  <mat-form-field>
+    <mat-label>Ime</mat-label>
+    <input matInput [errorStateMatcher]="matcher" placeholder="{{this.recvData.emp.Firstname}}"
+      value="{{this.recvData.emp.Firstname}}" formControlName="Firstname">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Prezime</mat-label>
+    <input matInput placeholder="{{this.recvData.emp.Lastname}}" formControlName="Lastname"
+      value="{{this.recvData.emp.Lastname}}">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Odjel</mat-label>
+    <input matInput placeholder="{{this.recvData.emp.Department}}" formControlName="Department"
+      value="{{this.recvData.emp.Department}}">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Pozicija</mat-label>
+    <input matInput placeholder="{{this.recvData.emp.Position}}" formControlName="Position"
+      value="{{this.recvData.emp.Position}}">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Kraj radnog odnosa</mat-label>
+    <input matInput placeholder="{{this.recvData.emp.StartOfWork | date }}" type="date"
+      value="{{this.recvData.emp.StartOfWork}}" formControlName="EndOfWork">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Početak radnog odnosa</mat-label>
+    <input matInput placeholder="{{this.recvData.emp.EndOfWork | date }}" type="date"
+      value="{{this.recvData.emp.EndOfWork}}" formControlName="StartOfWork">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Broj telefona</mat-label>
+    <input matInput placeholder="{{this.recvData.emp.Telephone}}" formControlName="Telephone"
+      value="{{this.recvData.emp.Telephone}}">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="{{this.recvData.emp.Email}}" formControlName="Email"
+      value="{{this.recvData.emp.Email}}">
+  </mat-form-field>
+  <button type="submit" mat-flat-button color="primary">Uredi</button>
+</form>

@@ -1,0 +1,26 @@
+<div class="documentationContent">
+  <span *ngFor="let document of Documents | filter: searchText" class="dialogmessage">
+    <mat-card class="message-card">
+      <mat-card-title>{{ document.Title }}</mat-card-title>
+      <mat-card-subtitle>{{ document.Group }} </mat-card-subtitle>
+      <mat-card-content>
+        <div class="messagetext">
+          <mat-card>
+            <p id="messageShort">
+              <a href="{{document.Link}}">
+                {{ document.Link }}
+              </a>
+            </p>
+          </mat-card>
+        </div>
+        <mat-card-actions>
+          <div class="allowbtn">
+            <button mat-button color="warn" (click)="deleteDocument(document.Id)">
+              <fa-icon *ngIf="getEmail == 'muhamed.skikic@mibo.ba'" [icon]="faTrash" class="fa-lg"></fa-icon>
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </span>
+</div>

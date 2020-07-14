@@ -1,0 +1,60 @@
+.documentationContent {
+    padding-top: 50px;
+}
+
+.message-card {
+    max-width: 800px;
+    height: auto;
+    width: 100%;
+    padding: auto;
+    margin: 20px auto;
+    float: center;
+    background-color: #f8f8f8;
+}
+
+#messageShort {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 100ch;
+}
+
+.accounticon {
+    text-align: left;
+    padding-right: 20px;
+}
+
+.messagetext {
+    margin: 0px;
+    float: center;
+}
+
+.message-card {
+    width: auto;
+    padding: auto 5px;
+}
+
+#chips {
+    margin: 5px 10px;
+    display: inline-block;
+}
+
+#chips:hover {
+    cursor: pointer;
+}
+
+mat-chip-list {
+    margin: 10px;
+}
+
+.allowbtn {
+    text-align: right;
+}
+
+.email {
+    margin: 10px;
+}
+
+.messagetext {
+    height: auto;
+}

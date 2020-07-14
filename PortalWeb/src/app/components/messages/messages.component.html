@@ -1,0 +1,68 @@
+<div class="portalcontent">
+  <span *ngFor="let message of service.messages | filter: searchText" class="dialogmessage">
+    <mat-card class="message-card" *ngIf="message.IsApproved == true">
+      <div class="email">
+        <mat-icon class="accounticon">account_circle</mat-icon>{{ message.Email }}
+      </div>
+      <mat-card-content>
+        <div class="messagetext">
+          <mat-card>
+            <p id="messageShort" *ngIf="message.TextMessage.length > 100">
+              {{ message.TextMessage.substr(0, 100) }}...
+            </p>
+            <p id="messageShort" *ngIf="message.TextMessage.length < 100">
+              {{ message.TextMessage }}
+            </p>
+          </mat-card>
+        </div>
+        <p>{{ message.CurrentDate | date: "HH:mm   dd.MM.yyyy." }}</p>
+        <div>
+          <span id="chips" *ngFor="let att of message.Attachments">
+            <mat-chip-list id="chip" class="no-wrap">
+              <mat-chip (click)="downloadFile(att.AttachmentId)">{{ att.AttachmentFileName }}
+              </mat-chip>
+              <fa-icon [icon]="faDownload" (click)="downloadFile(att.AttachmentId)" class="fa-lg"></fa-icon>
+            </mat-chip-list>
+          </span>
+        </div>
+        <mat-card-actions>
+          <div class="allowbtn">
+            <button mat-button color="primary" (click)="openCommentDialog(message.MessageId)"
+              matTooltip="Ostavite komentar">
+              <fa-icon [icon]="faComment" class="fa-lg"></fa-icon>
+            </button>
+
+            <button mat-button color="basic" (click)="openExpandDialog(message.MessageId)" matTooltip="Vidi više">
+              <fa-icon [icon]="faExpandAlt" class="fa-lg"></fa-icon>
+            </button>
+
+
+            <button mat-button color="basic" *ngIf="!checkLikedMessages(message.MessageId); else dislike"
+              (click)="likeMessage(message.MessageId)" matTooltip="Sviđa mi se: {{message.LikeCounter}}">
+              <fa-icon [icon]="faThumbsUp" class="fa-lg"></fa-icon>
+            </button>
+            <ng-template #dislike>
+              <button mat-button color="basic" *ngIf="checkLikedMessages(message.MessageId)"
+                (click)="dislikeMessage(message.MessageId)" matTooltip="Sviđa mi se: {{message.LikeCounter}}">
+                <fa-icon [icon]="faThumbsDown" class="fa-lg"></fa-icon>
+              </button>
+            </ng-template>
+
+            <!-- <p>{{countlikes}}</p> -->
+            <button mat-button color="warn" (click)="
+                onDelete(
+                  message.MessageId,
+                  message.TextMessage,
+                  message.Email,
+                  message.Group
+                )
+              " matTooltip="Odbacite prijedlog">
+              <!-- <fa-icon *ngIf="getEmail == 'muhamed.skikic@mibo.ba'" [icon]="faTrash" class="fa-lg"></fa-icon> -->
+              <fa-icon [icon]="faTrash" class="fa-lg"></fa-icon>
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </span>
+</div>

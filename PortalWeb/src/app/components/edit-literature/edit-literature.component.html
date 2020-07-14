@@ -1,0 +1,29 @@
+<form [formGroup]="editLiteratureForm" (ngSubmit)="editLiterature(this.recvData.emp.Id)">
+
+  <mat-form-field>
+    <mat-label>Naziv</mat-label>
+    <input matInput [errorStateMatcher]="matcher" placeholder="{{this.recvData.lit.Title}}"
+      value="{{this.recvData.lit.Title}}" formControlName="Title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Grupa</mat-label>
+    <input matInput [errorStateMatcher]="matcher" placeholder="{{this.recvData.lit.Group}}"
+      value="{{this.recvData.lit.Group}}" formControlName="Group">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Link</mat-label>
+    <input matInput [errorStateMatcher]="matcher" placeholder="{{this.recvData.lit.Link}}"
+      value="{{this.recvData.lit.Group}}" formControlName="Link">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [errorStateMatcher]="matcher" placeholder="{{this.recvData.lit.Email}}"
+      value="{{this.recvData.lit.Email}}" formControlName="Email">
+  </mat-form-field>
+
+  <button type="submit" mat-flat-button color="primary">Uredi</button>
+
+</form>

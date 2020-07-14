@@ -1,0 +1,37 @@
+<main>
+  <mat-card *ngFor="let emp of Employees; let index = index">
+    <mat-card-header>
+      <mat-card-title>{{ emp.Firstname }} {{ emp.Lastname }}</mat-card-title>
+      <mat-card-subtitle>{{ emp.Department }}: {{ emp.Position }} </mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="emp.EmployeePicture" mat-card-image src="{{emp.EmployeePicture.AttachmentFileReference }}"
+      alt="{{emp.Firstname}} {{emp.Lastname}}">
+    <hr>
+    <mat-card-content>
+      <p>
+        <b>
+          Email: {{ emp.Email }}
+        </b>
+      </p>
+      <p>
+        <b>
+          Broj telefona: {{ emp.Telephone }}
+        </b>
+      </p>
+      <p>
+        Početak radnog odnosa: {{ emp.StartOfWork | date: 'dd.MM.yyyy.' }}
+      </p>
+      <p *ngIf="emp.EndOfWork != '0001-01-01T00:00:00'">
+        Kraj radnog odnosa: {{ emp.EndOfWork | date: 'dd.MM.yyyy.'}}
+      </p>
+      <div class="allowbtn">
+        <button mat-button color="primary" (click)="editEmployee(emp)">
+          <fa-icon *ngIf="getEmail == 'muhamed.skikic@mibo.ba'" [icon]="faEdit" class="fa-lg"></fa-icon>
+        </button>
+        <button mat-button color="warn" (click)="deleteDocument(emp.Id)">
+          <fa-icon *ngIf="getEmail == 'muhamed.skikic@mibo.ba'" [icon]="faTrash" class="fa-lg"></fa-icon>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</main>
