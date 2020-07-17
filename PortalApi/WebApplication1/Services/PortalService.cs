@@ -44,6 +44,12 @@ namespace WebApplication1.Services
         }
         public void SetAboutText( About tekst)
         {
+            List<About> abouts = aboutrepository.GetAll().ToList();
+            foreach(About x in abouts)
+            {
+                aboutrepository.Delete(x);
+            }
+
             aboutrepository.Insert(tekst);
         }
 

@@ -19,8 +19,5 @@ namespace WebApplication1.Models
         }
         public string Email { get; set; }
         public Guid MessageId { get; set; }
-        public Message Message { get; set; }
-
-
     }
 }

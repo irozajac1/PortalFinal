@@ -30,14 +30,14 @@ namespace WebApplication1.Controllers
 
         // GET: api/Attachment/getFileById
         [HttpGet("getFileById")]
-        public Attachment getById(Guid id)
+        public Attachment GetById(Guid id)
         {
             return _service.getFileById(id);
         }
 
         // POST: api/Attachment/sendFile
-        [HttpPost("sendFile")]
-        public void postFile(IFormFile myfile)
+        [HttpPost("sendFile/{id}")]
+        public void PostFile(IFormFile myfile)
         {
             _service.PostFile(myfile);
         }
@@ -45,7 +45,7 @@ namespace WebApplication1.Controllers
 
         //DELETE: api/Attachment/deleteFile
         [HttpDelete("deleteFile")]
-        public void deleteFile(Attachment myfile)
+        public void DeleteFile(Attachment myfile)
         {
             _service.deleteFile(myfile);
         }
