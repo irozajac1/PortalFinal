@@ -82,6 +82,6 @@ export class Meetings {
 export class News {
   public Id?: string;
   public Content: string;
-  public DateNow: Date;
+  public DateNow?: Date;
   public DateOfEvent: Date;
 }

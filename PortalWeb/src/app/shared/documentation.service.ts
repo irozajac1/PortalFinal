@@ -17,8 +17,8 @@ export class DocumentationService {
     return this.http.get(this.rootURL + "/Documentation");
   }
 
-  addDocument(){
-        
+  postDocument(e){
+        console.log(e);
   }
 
   deleteDocument2(id) {

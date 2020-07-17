@@ -26,8 +26,9 @@ export class EmployeeService {
 
     console.log(fromDataUser, file);
 
-    if (file.name != "") {
-      formData.append("EmployeePicture", file[0], file[0].name);
+    if (file.name != null) {
+      console.log(file);
+      formData.append("EmployeePicture", file, file.name);
     }
 
     formData.append("FirstName", fromDataUser.Firstname);

@@ -29,6 +29,7 @@ export class LiteratureComponent implements OnInit {
 
   delete(id) {
     this.LiteratureService.deleteLiterature(id).subscribe();
+    location.reload();
   }
 
   update(lit): void {

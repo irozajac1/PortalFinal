@@ -35,11 +35,11 @@ export class LiteratureService {
     return this.http.post(this.rootURL + "/Literature/SendLiterature", formData);
   }
 
-  postDocument(document: any, documentFile: File): Observable<any> {
+  postDocument(document: any): Observable<any> {
     var formData: FormData = new FormData();
-    formData.append("Title", document.title);
-    formData.append("Group", document.group);
-    formData.append("Files", documentFile[0], documentFile[0].name);
+    formData.append("Title", document.Title);
+    formData.append("Group", document.Group);
+    formData.append("Link", document.Link);
     return this.http.post(this.rootURL + "/Documentation/sendDocumentation", formData);
   }
 
