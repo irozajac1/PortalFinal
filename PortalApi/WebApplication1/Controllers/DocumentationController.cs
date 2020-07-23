@@ -48,6 +48,25 @@ namespace WebApplication1.Controllers
             _service.addDocumentation(documentation);
         }
 
+        //PUT : api/Documentation/UpdateDoc
+        [HttpPut("UpdateDoc/{id}")]
+        public IActionResult UpdateDocument(Guid id, Documentation documentation)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest("Invalid objeect sent from client");
+                }
+                _service.UpdateDoc(documentation, id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error {ex.Message}");
+            }
+        }
+
         //DELETE: api/Documentation/deleteDoc
         [HttpDelete("deleteDoc/{id}")]
         public void DeleteDocumentation(Guid id)

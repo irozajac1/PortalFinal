@@ -124,5 +124,17 @@ namespace WebApplication1.Services
             }
             return contentType;
         }
+
+        public void UpdateLiterature(Literature l, Guid id)
+        {
+            var literature = repository.GetById(id);
+
+            literature.Group = l.Group;
+            literature.Link = l.Link;
+            literature.Title = l.Title;
+            literature.Files = l.Files;
+
+            repository.Update(literature);
+        }
     }
 }

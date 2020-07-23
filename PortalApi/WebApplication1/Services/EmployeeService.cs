@@ -76,7 +76,7 @@ namespace WebApplication1.Services
                 Department = employeeRequest.Department,
                 Position = employeeRequest.Position,
                 StartOfWork = employeeRequest.StartOfWork,
-                EndOfWork = employeeRequest.EndOfWork
+                ExtensionNumber = employeeRequest.ExtensionNumber
             };
             employeeRepository.Insert(employee);
 
@@ -97,7 +97,7 @@ namespace WebApplication1.Services
             emp.Department = employee.Department;
             emp.Position = employee.Position;
             emp.StartOfWork = employee.StartOfWork;
-            emp.EndOfWork = employee.EndOfWork;
+            emp.ExtensionNumber = employee.ExtensionNumber;
             emp.Telephone = employee.Telephone;
             emp.EmployeePicture = employee.EmployeePicture;
 

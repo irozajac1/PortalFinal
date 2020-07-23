@@ -57,6 +57,25 @@ namespace WebApplication1.Controllers
             return Ok();
         }
 
+        //PUT : api/Literature/Update
+        [HttpPut("Update/{id}")]
+        public IActionResult UpdateDocument(Guid id, Literature literature)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest("Invalid objeect sent from client");
+                }
+                service.UpdateLiterature(literature, id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         //DELETE : api/Literature/deleteLiterature
         [HttpDelete("deleteLiterature")]
         public IActionResult Delete(Guid id)

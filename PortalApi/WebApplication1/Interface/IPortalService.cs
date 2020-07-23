@@ -29,6 +29,8 @@ namespace WebApplication1.Interface
         List<Meetings> GetMeetings();
         void PostLink(Meetings meeting);
         void DeleteLink(Guid id);
+        void UpdateLink(Meetings m, Guid id);
+        void UpdateDoc(Documentation doc, Guid id);
 
     }
 }

@@ -16,5 +16,6 @@ namespace WebApplication1.Interface
         void DeleteLiterature(Guid id);
         int GetNotApproved();
         FileStreamResult DownloadFile(Guid id);
+        void UpdateLiterature(Literature l, Guid id);
     }
 }

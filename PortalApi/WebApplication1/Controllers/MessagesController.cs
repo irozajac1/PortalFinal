@@ -44,7 +44,7 @@ namespace WebApplication1.Controllers
         }
 
         // PUT: api/Messages/update
-        [HttpPut("update")]
+        [HttpPut("update/{id}")]
         public async Task<IActionResult> PutMessage(Guid id, Message message)
         {
             service.UpdateMessage(id, message);

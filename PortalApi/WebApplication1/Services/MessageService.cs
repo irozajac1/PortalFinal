@@ -180,6 +180,8 @@ namespace WebApplication1.Services
 
             messageNew.TextMessage = message.TextMessage;
             messageNew.Attachments = message.Attachments;
+
+            messageRepository.Update(messageNew);
         }
 
         public List<Comment> GetAllComments()

@@ -60,8 +60,28 @@ namespace WebApplication1.Controllers
             return Ok();
         }
 
+        //PUT : api/Meeting/UpdateLink
+        [HttpPut("UpdateLink/{id}")]
+        public IActionResult UpdateLink(Meetings meeting, Guid id)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest("Invalid objeect sent from client");
+                }
+                service.UpdateLink(meeting, id);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
         //DELETE: api/Meeting/DeleteLink
-        [HttpDelete("DeleteLink")]
+        [HttpDelete("DeleteLink/{id}")]
         public async Task<ActionResult<Meetings>> DeleteLink(Guid id)
         {
             

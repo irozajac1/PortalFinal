@@ -158,5 +158,23 @@ namespace WebApplication1.Services
             var x = meetingsrepository.GetById(id);
             meetingsrepository.Delete(x);
         }
+
+        public void UpdateLink(Meetings m, Guid id)
+        {
+           var meeting = meetingsrepository.GetById(id);
+            meeting.Url = m.Url;
+
+            meetingsrepository.Update(meeting);
+        }
+
+        public void UpdateDoc(Documentation doc, Guid id)
+        {
+            var document = documentationrepository.GetById(id);
+            document.Link = doc.Link;
+            document.Group = doc.Group;
+            document.Title = doc.Title;
+
+            documentationrepository.Update(document);
+        }
     }
 }

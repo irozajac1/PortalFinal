@@ -58,34 +58,28 @@ namespace WebApplication1.Controllers
             return Ok();
         }
 
-        // PUT: api/News/5
-        [HttpPut("{update}")]
-        public async Task<IActionResult> PutNews(Guid id, [FromBody] News news)
+        //PUT : api/News/UpdateNews
+        [HttpPut("UpdateNews/{id}")]
+        public IActionResult UpdateNews(News news, Guid id)
         {
-            if (id != news.Id)
-            {
-                return BadRequest();
-            }
-
             try
             {
-                service.Update(id,news);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest("Invalid objeect sent from client");
+                }
+                service.Update(id, news);
+                return Ok();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception ex)
             {
-                if (!NewsExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw ex;
             }
-            return NoContent();
-        }
+
+        } 
+
         // DELETE: api/News/deleteNews
-        [HttpDelete("deleteNews")]
+        [HttpDelete("deleteNews/{id}")]
         public async Task<ActionResult<News>> DeleteNews(Guid id)
         {
             service.DeleteNews(id);
