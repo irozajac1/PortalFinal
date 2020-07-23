@@ -11,7 +11,7 @@ export class DetailService {
   fromDataMessage: MessageDetail;
   fromDataComment: CommentDetail;
   // readonly rootURL = "https://pdp.mibo.ba:44390/api";
-  readonly rootURL = "https://localhost:44390/api";
+  readonly rootURL = "https://localhost:5001/api";
   messages: MessageDetail[];
   comments: CommentDetail[];
   listFOrmData: any[] = [];

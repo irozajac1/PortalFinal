@@ -11,7 +11,7 @@ export class EmployeeService {
   fromDataUser: Employee;
   fromDataLike: UserLike;
   // readonly rootURL = "https://pdp.mibo.ba:44390/api";
-  readonly rootURL = "https://localhost:44390/api";
+  readonly rootURL = "https://localhost:5001/api";
 
   employee: Employee[];
   listOfLikes: UserLike[];

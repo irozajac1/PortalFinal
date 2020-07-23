@@ -45,6 +45,7 @@ namespace WebApplication1
                 });
             services.AddDbContext<PortalContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
             services.AddScoped(typeof(IPortalRepository<>), typeof(PortalRepository<>));
             services.AddScoped<IPortalService, PortalService>();
             services.AddScoped<ILiteratureService, LiteratureService>();
