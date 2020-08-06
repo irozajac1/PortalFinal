@@ -7,6 +7,7 @@ import {
   faEdit
 } from "node_modules/@fortawesome/free-solid-svg-icons";
 import { EditEmployeeComponent } from '../edit-employee/edit-employee.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employees',
@@ -20,8 +21,7 @@ export class EmployeesComponent implements OnInit {
   getEmail = 'muhamed.skikic@mibo.ba';
   ArrayOfFiles: any[] = [];
 
-  constructor(public EmployeeService: EmployeeService, public dialog: MatDialog,
-  ) {
+  constructor(public EmployeeService: EmployeeService, public dialog: MatDialog, public toastr: ToastrService) {
   }
 
   Employees: Employee[];
@@ -37,7 +37,14 @@ export class EmployeesComponent implements OnInit {
   }
 
   deleteDocument(id) {
-    return this.EmployeeService.deleteEmployee(id);
+    return this.EmployeeService.deleteEmployee(id).subscribe(res => {
+      this.toastr.success("Uspješno");
+      location.reload();
+      this.EmployeeService.getEmployees().subscribe(data => { this.Employees = data as Employee[]; });
+    },
+      err => {
+        this.toastr.error("Pokušajte ponovo", "Došlo je do greške");
+      });
   }
 
   editEmployee(emp): void {

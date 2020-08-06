@@ -58,9 +58,16 @@ export class DetailService {
     window.open(this.rootURL + "/Messages/" + id);
   }
 
+
+
+  getAllMessages() {
+    return this.http.get<any>(this.rootURL + "/Messages");
+  }
+
   postCommentDetail(fromDataComment) {
+    console.log(fromDataComment)
     return this.http.post<CommentDetail[]>(
-      this.rootURL + "/Comments",
+      this.rootURL + "/Comments/" + fromDataComment.MessageId,
       fromDataComment
     );
   }
@@ -79,17 +86,27 @@ export class DetailService {
   deleteMessageDetail(id) {
     return this.http.delete(this.rootURL + "/Messages/" + id);
   }
+
+  hardDelete(id) {
+    return this.http.delete(this.rootURL + "/Messages/deleteMessage/" + id);
+  }
+
   refreshMessageList() {
-    this.http
-      .get(this.rootURL + "/Messages")
+    return this.http
+      .get<any>(this.rootURL + "/Messages")
       .toPromise()
       .then(res => (this.messages = res as MessageDetail[]));
   }
+
+  getMessages(): Observable<MessageDetail[]> {
+    return this.http.get<MessageDetail[]>(this.rootURL + "/Messages");
+  }
+
   getNotApprovedMessageCount() {
     return this.http.get(this.rootURL + "/Messages/notapprovedmessagescount");
   }
-  putMessageDetail(id, approved) {
-    return this.http.put(this.rootURL + "/Messages/" + id, approved);
+  putMessageDetail(id, message) {
+    return this.http.put(this.rootURL + "/Messages/update/" + id, message);
   }
 
   likeMessage(id) {

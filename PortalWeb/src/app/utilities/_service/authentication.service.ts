@@ -12,7 +12,7 @@ import { environment } from './../../../environments/environment';
 export class AuthenticationService {
 
 
-  constructor(private router: Router,  private http: HttpClient, private _MsAdalAngular6Service: MsAdalAngular6Service) {
+  constructor(private router: Router, private http: HttpClient, private _MsAdalAngular6Service: MsAdalAngular6Service) {
 
   }
 
@@ -30,9 +30,6 @@ export class AuthenticationService {
   logout() {
     localStorage.clear();
     // this.router.navigate(['/login']);
-
-    ////TODO
-    //moze li ovako? testirati?!?
     this._MsAdalAngular6Service.logout();
   }
 

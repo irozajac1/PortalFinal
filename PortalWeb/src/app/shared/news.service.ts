@@ -21,11 +21,10 @@ export class NewsService {
   }
 
   editNews(news: News, id){
-    console.log(news, id);
-    return this.http.put(this.rootURL + "/News/" + id, news).subscribe();
+    return this.http.put(this.rootURL + "/News/UpdateNews/" + id, news);
   }
 
   deleteNews(id){
-    return this.http.delete(this.rootURL + "/News/deleteNews", id).subscribe();
+    return this.http.delete(this.rootURL + "/News/deleteNews/" + id);
   }
 }

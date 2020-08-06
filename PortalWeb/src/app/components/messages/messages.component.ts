@@ -18,6 +18,11 @@ import {
   faThumbsDown,
   faBook
 } from "node_modules/@fortawesome/free-solid-svg-icons";
+import { CommentDetail } from 'src/app/shared/comment-detail.model';
+import { MessageDetail } from 'src/app/shared/message-detail.model';
+
+import { ShowMessageComponent } from 'src/app/components/show-message/show-message.component';
+import { SearchDataService } from 'src/app/shared/search-data.service';
 
 @Component({
   selector: 'app-messages',
@@ -46,15 +51,22 @@ export class MessagesComponent implements OnInit {
   isLikedByUser: boolean;
   public toggleSidebar: boolean = true;
 
+  messages: MessageDetail[];
+  comments: CommentDetail[];
+
   constructor(
     public dialog: MatDialog,
     public service: DetailService,
     public toastr: ToastrService,
     // public authenticationService: AuthenticationService,
     public router: Router,
-    private formBuilder: FormBuilder
+    public showMsg: ShowMessageComponent,
+    private formBuilder: FormBuilder,
+    public shareData: SearchDataService,
   ) { }
+
   ngOnInit() {
+
 
     if (window.screen.width <= 600) {
       this.mobile = true;
@@ -69,6 +81,7 @@ export class MessagesComponent implements OnInit {
     this.service.refreshMessageList();
     this.service.getNotApprovedMessageCount();
     this.service.getDocuments();
+    this.service.getAllMessages().subscribe(data => { this.messages = data as MessageDetail[] });
     // let getToken = localStorage.getItem("adal.idtoken");
     // let decode = jwt_decode(getToken);
     // let upn = decode.email; //upn za produkcijsku verziju
@@ -82,38 +95,51 @@ export class MessagesComponent implements OnInit {
     this.restoreForm = this.formBuilder.group({
       IsDeleted: "false"
     });
+
+  }
+
+  search(searchValue) {
+    var tempMsgs = [];
+ 
+    console.log(searchValue);
+
+    for (let msg of this.messages) {
+      if (msg.TextMessage.includes(searchValue.trim())) {
+        tempMsgs.push(msg);
+      }
+    }
   }
 
   downloadFile(id) {
     this.service.downloadFile(id);
   }
-  openCommentDialog(MessageId: number): void {
-    let listOfComments = this.service.messages.find(
-      x => x.MessageId === MessageId
+  openCommentDialog(id): void {
+    let listOfComments = this.messages.find(
+      x => x.Id === id
     ).ListOfComments;
     const dialogRef = this.dialog.open(CommentsComponent, {
       width: "800px",
       height: "600px",
       autoFocus: false,
       data: {
-        MessageId,
+        id,
         listOfComments
       }
     });
   }
 
-  checkLikedMessages(MessageId: number): Boolean {
-    let Messages = this.service.messages.find(x => x.MessageId === MessageId);
-    let Liked = Messages.UserLikeList.find(x => x.Email === 'jovicic.djordje@outlook.com');
-    if (Liked != null) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // checkLikedMessages(MessageId: number): Boolean {
+  //   let Messages = this.service.messages.find(x => x.Id === MessageId);
+  //   // let Liked = Messages.UserLikeList.find(x => x.Email === 'jovicic.djordje@outlook.com');
+  //   if (Liked != null) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   openExpandDialog(MessageId: number): void {
-    let Messages = this.service.messages.find(x => x.MessageId === MessageId);
+    let Messages = this.service.messages.find(x => x.Id === MessageId);
     const dialogRef = this.dialog.open(OpenMessageComponent, {
       width: "800px",
       data: {
@@ -143,6 +169,7 @@ export class MessagesComponent implements OnInit {
       res => {
         this.service.refreshMessageList();
         this.service.getNotApprovedMessageCount();
+        location.reload();
         this.toastr.warning("Sadržaj nije odobren");
       },
       err => {

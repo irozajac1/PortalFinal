@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import {
   faClock,
-  faComment, 
+  faComment,
   faDownload
 } from "node_modules/@fortawesome/free-solid-svg-icons";
 import { DetailService } from "../../shared/detail.service";
@@ -32,7 +32,7 @@ export class OpenMessageComponent implements OnInit {
     return this.addCommentForm.controls;
   }
 
-  downloadFile(id){
+  downloadFile(id) {
     this.service.downloadFile(id);
     console.log("kliknuo");
   }
@@ -41,9 +41,10 @@ export class OpenMessageComponent implements OnInit {
     this.addComment = true;
   }
 
-  onSubmit() {
+  onSubmit(id) {
+    console.log(id);
     let tempoforma = {
-      MessageId: this.addCommentForm.value.MessageId,
+      MessageId: id,
       TextComment: this.addCommentForm.value.TextComment,
       Email: this.addCommentForm.value.Email
     };

@@ -4,7 +4,7 @@
       <mat-card-title>{{ emp.Firstname }} {{ emp.Lastname }}</mat-card-title>
       <mat-card-subtitle>{{ emp.Department }}: {{ emp.Position }} </mat-card-subtitle>
     </mat-card-header>
-    <img *ngIf="emp.EmployeePicture" mat-card-image src="{{emp.EmployeePicture.AttachmentFileReference }}"
+    <img *ngIf="emp.EmployeePicture" mat-card-image src="{{emp.EmployeePicture.AttachmentFileReference}}"
       alt="{{emp.Firstname}} {{emp.Lastname}}">
     <hr>
     <mat-card-content>
@@ -21,9 +21,9 @@
       <p>
         Početak radnog odnosa: {{ emp.StartOfWork | date: 'dd.MM.yyyy.' }}
       </p>
-      <p *ngIf="emp.EndOfWork != '0001-01-01T00:00:00'">
+      <!-- <p *ngIf="emp.EndOfWork != '0001-01-01T00:00:00 | null'">
         Kraj radnog odnosa: {{ emp.EndOfWork | date: 'dd.MM.yyyy.'}}
-      </p>
+      </p> -->
       <div class="allowbtn">
         <button mat-button color="primary" (click)="editEmployee(emp)">
           <fa-icon *ngIf="getEmail == 'muhamed.skikic@mibo.ba'" [icon]="faEdit" class="fa-lg"></fa-icon>

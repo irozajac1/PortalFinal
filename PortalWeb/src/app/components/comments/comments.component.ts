@@ -63,14 +63,14 @@ export class CommentsComponent implements OnInit {
       form.resetForm();
     }
   }
-  onSubmit() {
+  onSubmit(id) {
     this.submitted = true;
     if (this.commentForm.invalid) {
       return;
     }
 
     let tempoforma = {
-      MessageId: this.commentForm.value.MessageId,
+      MessageId: id,
       TextComment: this.commentForm.value.TextComment,
       Email: this.commentForm.value.Email
     };

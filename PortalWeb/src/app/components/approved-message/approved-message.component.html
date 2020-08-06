@@ -21,26 +21,21 @@
         <div>
           <span id="chips" *ngFor="let att of message.Attachments">
             <mat-chip-list id="chip" class="no-wrap">
-              <mat-chip (click)="downloadFile(att.AttachmentId)"
-                >{{ att.AttachmentFileName }}
+              <mat-chip (click)="downloadFile(att.AttachmentId)">{{ att.AttachmentFileName }}
               </mat-chip>
-              <fa-icon
-                [icon]="faDownload"
-                (click)="downloadFile(att.AttachmentId)"
-                class="fa-lg"
-              ></fa-icon>
+              <fa-icon [icon]="faDownload" (click)="downloadFile(att.AttachmentId)" class="fa-lg"></fa-icon>
             </mat-chip-list>
           </span>
         </div>
         <mat-card-actions>
           <div class="allowbtn">
             <button mat-button class="checkbtn"
-              (click)="approvedMessage(message.MessageId, message.TextMessage, message.Email, message.Group)"
+              (click)="approvedMessage(message.Id, message.TextMessage, message.Email, message.Group)"
               matTooltip="Odobrite prijedlog">
               <mat-icon aria-hidden="false" aria-label=" ">check</mat-icon>
             </button>
             <button mat-button color="warn"
-              (click)="onDelete(message.MessageId, message.TextMessage, message.Email, message.Group)"
+              (click)="onHardDelete(message.Id)"
               matTooltip="Odbacite prijedlog">
               <mat-icon aria-hidden="false" aria-label=" ">clear</mat-icon>
             </button>

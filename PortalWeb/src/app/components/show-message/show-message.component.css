@@ -1,56 +1,56 @@
 .approvedbtn {
-    width: fit-content;
-    padding: 0 10px;
+  width: fit-content;
+  padding: 0 10px;
 }
 
 .logoutbtn {
-    background-color: #f8f8f8;
-    color: gray;
+  background-color: #f8f8f8;
+  color: gray;
 }
 
 .header-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .logoheader {
-    box-shadow: 1px 2px 3px #888888;
-    background-color: #f8f8f8;
-    height: auto;
-    width: 100%;
+  box-shadow: 1px 2px 3px #888888;
+  background-color: #f8f8f8;
+  height: auto;
+  width: 100%;
 }
 
 .vertical-line {
-    border-left: 1px solid gray;
-    height: 8vh;
-    box-shadow: 1px 1px 1px #000000;
+  border-left: 1px solid gray;
+  height: 8vh;
+  box-shadow: 1px 1px 1px #000000;
 }
 
 .paddingTop {
-    padding: 1% 0;
+  padding: 1% 0;
 }
 
 .mibologo {
-    float: left;
-    height: auto;
-    width: 200px;
-    filter: drop-shadow(2px 2px 2px #888888);
-    padding: 20px;
+  float: left;
+  height: auto;
+  width: 200px;
+  filter: drop-shadow(2px 2px 2px #888888);
+  padding: 20px;
 }
 
 .creativelogo {
-    float: left;
-    height: auto;
-    width: 90px;
-    filter: drop-shadow(2px 2px 2px #888888);
-    padding: 20px;
+  float: left;
+  height: auto;
+  width: 90px;
+  filter: drop-shadow(2px 2px 2px #888888);
+  padding: 20px;
 }
 
 #dobrePrakse {
-    text-align: center;
-    margin-left: 1%;
-    font-family: "Roboto", cursive, sans-serif;
-    text-shadow: 2px 2px 3px #696969;
-    font-size: 150%;
+  text-align: center;
+  margin-left: 1%;
+  font-family: "Roboto", cursive, sans-serif;
+  text-shadow: 2px 2px 3px #696969;
+  font-size: 150%;
 }
 
 /* mat-tab {
@@ -62,348 +62,441 @@
 } */
 
 .message-card {
-    max-width: 800px;
-    height: auto;
-    width: 100%;
-    padding: auto;
-    margin: 5% auto 2% auto;
-    float: center;
-    background-color: #f8f8f8;
+  max-width: 800px;
+  height: auto;
+  width: 100%;
+  padding: auto;
+  margin: 5% auto 2% auto;
+  float: center;
+  background-color: #f8f8f8;
 }
 
 .dialogmessage {
-    margin: 0;
+  margin: 0;
 }
 
 .commentbtn {
-    text-align: center;
+  text-align: center;
 }
 
 .commenticon {
-    color: #3f3f3f;
+  color: #3f3f3f;
 }
 
 .example-full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .sendbtn {
-    text-align: right;
+  text-align: right;
 }
 
 .messagebtn {
-    position: fixed;
-    top: 50px;
-    right: 0;
-    z-index: 1000;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  z-index: 1000;
 }
 
 #search-field {
-    margin: 0 1.5%;
+  margin: 0 1.5%;
 }
 
 .addbtn {
-    margin: 10px 20px 20px auto;
-    height: 60px;
-    width: 60px;
+  margin: 10px 20px 20px auto;
+  height: 60px;
+  width: 60px;
 }
 
 .addicon {
-    color: darkorange;
+  color: darkorange;
 }
 
 .limitedText {
-    overflow: hidden;
-    max-width: 800px;
-    white-space: pre-line;
+  overflow: hidden;
+  max-width: 800px;
+  white-space: pre-line;
 }
 
-.checkbtn, .restorebtn {
-    color: green;
+.checkbtn,
+.restorebtn {
+  color: green;
 }
 
 .search {
-    height: auto;
-    width: 400px;
-    padding: auto;
-    margin: 17% auto 2% 1%;
+  height: auto;
+  width: 400px;
+  padding: auto;
+  margin: 17% auto 2% 1%;
 }
 
 .searchbtn {
-    text-align: right;
+  text-align: right;
 }
 
 .search-full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .searchicon {
-    color: #888888;
-    padding-bottom: 0px;
-    padding-right: 10px;
+  color: #888888;
+  padding-bottom: 0px;
+  padding-right: 10px;
 }
 
 footer {
-    display: none;
+  display: none;
 }
 
 /* Novi header */
 
 nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr 15fr 1fr 1fr;
-    padding: 10px;
-    border-bottom: 1px solid #cccccc;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: white;
-    z-index: 1000;
+  display: grid;
+  grid-template-columns: 1fr 1fr 15fr 1fr 1fr;
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 1000;
 }
 
 nav img {
-    max-width: 100px;
+  max-width: 100px;
 }
 
 form {
-    margin: auto;
-    display: flex;
-    width: 50%;
+  margin: auto;
+  display: flex;
+  width: 50%;
 }
 
 span {
-    margin: auto;
+  margin: auto;
 }
 
 #searchField {
-    width: 100%;
+  width: 100%;
 }
 
 #searchFieldIcon {
-    border-left: 1px solid #e6e6e6;
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
-    border-radius: 3px 0 0 3px;
+  border-left: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  border-radius: 3px 0 0 3px;
 }
 
 input {
-    border: 1px solid #e6e6e6;
-    border-radius: 0 3px 3px 0;
-    outline: none;
-    width: calc(100% - 40px);
+  border: 1px solid #e6e6e6;
+  border-radius: 0 3px 3px 0;
+  outline: none;
+  width: calc(100% - 40px);
 }
 
 input:active {
-    border: 1px solid rgb(211, 211, 211);
+  border: 1px solid rgb(211, 211, 211);
 }
 
 input[type="search"]::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-    color: black !important;
-    content: 'X';
+  -webkit-appearance: none;
+  color: black !important;
+  content: 'X';
 }
 
 #searchFieldIcon {
-    width: 40px;
-    height: 29px;
-    background-color: rgb(211, 211, 211);
-    display: flex;
+  width: 40px;
+  height: 29px;
+  background-color: rgb(211, 211, 211);
+  display: flex;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .textAlign {
-    text-align: center;
+  text-align: center;
 }
 
 .centerAll {
-    margin: auto;
+  margin: auto;
 }
 
 .darkGrayText {
-    color: #6b6b6b;
+  color: #6b6b6b;
 }
 
 /* ----- */
 
 main {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 7fr;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
 }
 
 /* SIDEBAR */
 
 #sidebarMenu {
-    padding-top: 60px;
-    z-index: 1000;
+  padding-top: 60px;
+  z-index: 1000;
 }
 
 section {
-    height: 100%;
+  height: 100%;
 }
 
 ul {
-    border-right: 1px solid #cccccc;
-    height: 100%;
-    background-color: rgb(241, 241, 241);
-    padding: 20px 20px 0 20px;
-    list-style: none;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+  border-right: 1px solid #cccccc;
+  height: 100%;
+  background-color: rgb(241, 241, 241);
+  padding: 20px 20px 0 20px;
+  list-style: none;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 ul li {
-    color: rgb(37, 37, 37);
-    padding: 15px 0px;
-    border-bottom: 1px solid #B0BEC5;
+  color: rgb(37, 37, 37);
+  padding: 15px 0px;
+  border-bottom: 1px solid #B0BEC5;
 }
 
 ul li:focus {
-    outline: 0;
+  outline: 0;
 }
 
 ul li:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* ------- */
 
 @media (min-width: 660px) {
-    #menu {
-        visibility: hidden;
-    }
+  #menu {
+    visibility: hidden;
+  }
 }
 
 @media (max-width: 660px) {
-    footer {
-        background-color: #f8f8f8;
-        padding: 2% 0;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        border-top: 1px solid black;
-        z-index: 100;
-    }
-    .addbtn {
-        margin: 10px;
-        height: 40px;
-        width: 40px;
-    }
-    .approvedbtn {
-        width: fit-content;
-        padding: 0 3px;
-    }
-    main {
-        height: fit-content;
-        display: block;
-    }
-    ul {
-        font-size: 15px;
-        height: 100%;
-        background-color: rgb(241, 241, 241);
-        padding: 0 20px;
-        list-style: none;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        border-right: none;
-        border-bottom: 1px solid #cccccc;
-    }
-    ul li:last-child {
-        border: none;
-    }
-    #logo {
-        display: none;
-    }
-    nav {
-        grid-template-columns: 1fr 6fr 1fr 1fr;
-        width: 100%;
-    }
-    form {
-        width: 80%;
-    }
-    footer span {
-        width: 33%;
-        margin: auto;
-        text-align: center;
-    }
-    footer span mat-icon {
-        width: 50%;
-    }
-    #search-icon {
-        border-left: 1px solid black;
-        border-right: 1px solid black;
-    }
-    #header-icon-wrapper {
-        display: flex;
-    }
-    .mibologo {
-        width: 45%;
-        margin: inherit;
-        padding: 20px 0 15px 0;
-    }
-    #mobileDobrePrakse {
-        text-align: center;
-        font-size: medium;
-    }
-    .vertical-line {
-        height: 8vh;
-        width: fit-content;
-        box-shadow: none;
-        float: left;
-        margin-top: 2%;
-    }
-    #dobrePrakse {
-        text-align: center;
-        margin-left: 1%;
-        font-family: "Roboto", cursive, sans-serif;
-        text-shadow: 2px 2px 3px #696969;
-        font-size: 130%;
-        margin-top: 5%;
-    }
-    .creativelogo {
-        width: 45%;
-        padding: 10px;
-    }
-    .logoheader {
-        margin: 0;
-        padding: 5% auto;
-        display: inline-block;
-        height: auto;
-    }
-    .headerbtn {
-        float: right;
-    }
-    .header-spacer {
-        flex: 0 0 auto;
-    }
-    .mat-form-field {
-        position: relative;
-        text-align: left;
-        display: inline;
-    }
-    .search-full-width {
-        width: 50%;
-    }
-    .mat-form-field-infix {
-        border-top: none;
-    }
-    .search {
-        margin: 50px auto 2px 2px;
-        width: 300px;
-        padding-left: 30px;
-    }
-    .spaceitem {
-        margin-top: 15px;
-    }
-    .header-spacer {
-        flex: 0 0 auto;
-    }
+  footer {
+    background-color: #f8f8f8;
+    padding: 2% 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid black;
+    z-index: 100;
+  }
+
+  .addbtn {
+    margin: 10px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .approvedbtn {
+    width: fit-content;
+    padding: 0 3px;
+  }
+
+  main {
+    height: fit-content;
+    display: block;
+  }
+
+  ul {
+    font-size: 15px;
+    height: 100%;
+    background-color: rgb(241, 241, 241);
+    padding: 0 20px;
+    list-style: none;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-right: none;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  ul li:last-child {
+    border: none;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  nav {
+    grid-template-columns: 1fr 6fr 1fr 1fr;
+    width: 100%;
+  }
+
+  form {
+    width: 80%;
+  }
+
+  footer span {
+    width: 33%;
+    margin: auto;
+    text-align: center;
+  }
+
+  footer span mat-icon {
+    width: 50%;
+  }
+
+  #search-icon {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+
+  #header-icon-wrapper {
+    display: flex;
+  }
+
+  .mibologo {
+    width: 45%;
+    margin: inherit;
+    padding: 20px 0 15px 0;
+  }
+
+  #mobileDobrePrakse {
+    text-align: center;
+    font-size: medium;
+  }
+
+  .vertical-line {
+    height: 8vh;
+    width: fit-content;
+    box-shadow: none;
+    float: left;
+    margin-top: 2%;
+  }
+
+  #dobrePrakse {
+    text-align: center;
+    margin-left: 1%;
+    font-family: "Roboto", cursive, sans-serif;
+    text-shadow: 2px 2px 3px #696969;
+    font-size: 130%;
+    margin-top: 5%;
+  }
+
+  .creativelogo {
+    width: 45%;
+    padding: 10px;
+  }
+
+  .logoheader {
+    margin: 0;
+    padding: 5% auto;
+    display: inline-block;
+    height: auto;
+  }
+
+  .headerbtn {
+    float: right;
+  }
+
+  .header-spacer {
+    flex: 0 0 auto;
+  }
+
+  .mat-form-field {
+    position: relative;
+    text-align: left;
+    display: inline;
+  }
+
+  .search-full-width {
+    width: 50%;
+  }
+
+  .mat-form-field-infix {
+    border-top: none;
+  }
+
+  .search {
+    margin: 50px auto 2px 2px;
+    width: 300px;
+    padding-left: 30px;
+  }
+
+  .spaceitem {
+    margin-top: 15px;
+  }
+
+  .header-spacer {
+    flex: 0 0 auto;
+  }
 }
+
+
+/*--------------------------------------------*/
+
+.message-card {
+  max-width: 800px;
+  height: auto;
+  width: 100%;
+  padding: auto;
+  margin: 5% auto 2% auto;
+  float: center;
+  background-color: #f8f8f8;
+}
+
+#messageShort {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 100ch;
+}
+
+.accounticon {
+  text-align: left;
+  padding-right: 20px;
+}
+
+.messagetext {
+  margin: 0px;
+  float: center;
+}
+
+.message-card {
+  width: auto;
+  padding: auto 5px;
+}
+
+#chips {
+  margin: 5px 10px;
+  display: inline-block;
+}
+
+#chips:hover {
+  cursor: pointer;
+}
+
+mat-chip-list {
+  margin: 10px;
+}
+
+.allowbtn {
+  text-align: right;
+}
+
+.email {
+  margin: 10px;
+}
+
+.messagetext {
+  height: auto;
+}
+
+#lupa:hover {
+  cursor: pointer;
+}
+
+
 
 /* @media only screen and (max-width: 700px) {
   #dobrePrakse {

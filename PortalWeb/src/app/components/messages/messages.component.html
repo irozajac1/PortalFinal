@@ -1,5 +1,5 @@
 <div class="portalcontent">
-  <span *ngFor="let message of service.messages | filter: searchText" class="dialogmessage">
+  <span *ngFor="let message of messages | filter: searchText" class="dialogmessage">
     <mat-card class="message-card" *ngIf="message.IsApproved == true">
       <div class="email">
         <mat-icon class="accounticon">account_circle</mat-icon>{{ message.Email }}
@@ -15,7 +15,7 @@
             </p>
           </mat-card>
         </div>
-        <p>{{ message.CurrentDate | date: "HH:mm   dd.MM.yyyy." }}</p>
+        <p>Objavljeno: {{ message.CurrentDate | date: "HH:mm dd.MM.yyyy." }}</p>
         <div>
           <span id="chips" *ngFor="let att of message.Attachments">
             <mat-chip-list id="chip" class="no-wrap">
@@ -27,17 +27,16 @@
         </div>
         <mat-card-actions>
           <div class="allowbtn">
-            <button mat-button color="primary" (click)="openCommentDialog(message.MessageId)"
-              matTooltip="Ostavite komentar">
+            <button mat-button color="primary" (click)="openCommentDialog(message.Id)" matTooltip="Ostavite komentar">
               <fa-icon [icon]="faComment" class="fa-lg"></fa-icon>
             </button>
 
-            <button mat-button color="basic" (click)="openExpandDialog(message.MessageId)" matTooltip="Vidi više">
+            <button mat-button color="basic" (click)="openExpandDialog(message.Id)" matTooltip="Vidi više">
               <fa-icon [icon]="faExpandAlt" class="fa-lg"></fa-icon>
             </button>
 
 
-            <button mat-button color="basic" *ngIf="!checkLikedMessages(message.MessageId); else dislike"
+            <!-- <button mat-button color="basic" *ngIf="!checkLikedMessages(message.MessageId); else dislike"
               (click)="likeMessage(message.MessageId)" matTooltip="Sviđa mi se: {{message.LikeCounter}}">
               <fa-icon [icon]="faThumbsUp" class="fa-lg"></fa-icon>
             </button>
@@ -46,12 +45,12 @@
                 (click)="dislikeMessage(message.MessageId)" matTooltip="Sviđa mi se: {{message.LikeCounter}}">
                 <fa-icon [icon]="faThumbsDown" class="fa-lg"></fa-icon>
               </button>
-            </ng-template>
+            </ng-template> -->
 
             <!-- <p>{{countlikes}}</p> -->
             <button mat-button color="warn" (click)="
                 onDelete(
-                  message.MessageId,
+                  message.Id,
                   message.TextMessage,
                   message.Email,
                   message.Group

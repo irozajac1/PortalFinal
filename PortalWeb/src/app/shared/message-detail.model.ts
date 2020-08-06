@@ -1,7 +1,7 @@
 import { CommentDetail } from "./comment-detail.model";
 
 export class MessageDetail {
-  public MessageId?: number;
+  public Id?: number;
   public TextMessage: string;
   public CurrentDate: Date;
   public ListOfComments: CommentDetail[];

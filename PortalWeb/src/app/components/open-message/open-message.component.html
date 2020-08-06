@@ -6,7 +6,7 @@
       </mat-card>
     </div>
     <div *ngIf="addComment" id="openMessageComment">
-      <form [formGroup]="addCommentForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="addCommentForm" (ngSubmit)="onSubmit(this.recvData.Messages.Id)">
         <mat-form-field>
           <input formControlName="TextComment" matInput placeholder="Unesite komentar" />
           <button class="alignRight" mat-mini-fab color="white" matTooltip="Pošalji" type="submit">

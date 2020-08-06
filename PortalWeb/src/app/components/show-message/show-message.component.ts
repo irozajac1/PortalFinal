@@ -1,16 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { AddMessageComponent } from "../add-message/add-message.component";
 import { DetailService } from "../../shared/detail.service";
 import { ToastrService } from "ngx-toastr";
 import { CommentsComponent } from "../comments/comments.component";
-// import { AuthenticationService } from "../_service/authentication.service";
 import { Router } from "@angular/router";
-// import * as jwt_decode from "jwt-decode";
+import * as jwt_decode from "jwt-decode";
 import { ApprovedMessageComponent } from "../approved-message/approved-message.component";
 import { FormBuilder } from "@angular/forms";
 import { first } from "rxjs/operators";
-import { MessagesComponent } from '../messages/messages.component'
+import { SearchDataService } from 'src/app/shared/search-data.service';
 import {
   faTrash,
   faComment,
@@ -32,7 +31,9 @@ import {
   faInbox
 } from "node_modules/@fortawesome/free-solid-svg-icons";
 import { OpenMessageComponent } from "../open-message/open-message.component";
-
+import { MessageDetail } from 'src/app/shared/message-detail.model';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { AuthenticationService } from 'src/app/utilities/_service/authentication.service';
 
 @Component({
   selector: "app-show-message",
@@ -71,14 +72,21 @@ export class ShowMessageComponent implements OnInit {
   isLikedByUser: boolean;
   public toggleSidebar: boolean = true;
 
+  searchToggle: Boolean = false;
+
+  messages: MessageDetail[];
+  searchMessages: MessageDetail[];
+
   constructor(
     public dialog: MatDialog,
     public service: DetailService,
+    public shareData: SearchDataService,
     public toastr: ToastrService,
-    // public authenticationService: AuthenticationService,
+    public authenticationService: AuthenticationService,
     public router: Router,
     private formBuilder: FormBuilder
   ) { }
+
   ngOnInit() {
 
     if (window.screen.width <= 660) {
@@ -94,12 +102,13 @@ export class ShowMessageComponent implements OnInit {
     this.service.refreshMessageList();
     this.service.getNotApprovedMessageCount();
     this.service.getDocuments();
-    // let getToken = localStorage.getItem("adal.idtoken");
-    // let decode = jwt_decode(getToken);
-    // let upn = decode.email; //upn za produkcijsku verziju
-    // this.getEmail = upn;
-    // localStorage.setItem("upn", upn);
-    this.getEmail = "muhamed.skikic@mibo.ba";
+    this.service.getAllMessages().subscribe(data => { this.messages = data as MessageDetail[] });
+
+    let getToken = localStorage.getItem("adal.idtoken");
+    let decode = jwt_decode(getToken);
+    let upn = decode.email; //upn za produkcijsku verziju
+    this.getEmail = upn;
+    localStorage.setItem("upn", upn);
 
     this.deleteForm = this.formBuilder.group({
       IsDeleted: "true"
@@ -119,8 +128,33 @@ export class ShowMessageComponent implements OnInit {
 
   }
 
+  searchMsgs(arg) {
+    this.router.navigateByUrl("/Messages");
+    this.searchToggle = true;
+    this.shareData.searchData = arg;
+    this.search(arg);
+  }
+
+  search(searchValue) {
+    var tempMsgs = [];
+
+    console.log(searchValue);
+
+    for (let msg of this.messages) {
+      if (msg.TextMessage.includes(searchValue.trim())) {
+        tempMsgs.push(msg);
+      }
+    }
+    this.searchMessages = [];
+    this.searchMessages = tempMsgs;
+  }
+
   downloadFile(id) {
     this.service.downloadFile(id);
+  }
+
+  cancleToggleSearch() {
+    this.searchToggle = false;
   }
 
   openDialog(): void {
@@ -129,23 +163,24 @@ export class ShowMessageComponent implements OnInit {
       height: "auto"
     });
   }
-  openCommentDialog(MessageId: number): void {
+  openCommentDialog(id: number): void {
+    console.log(id);
     let listOfComments = this.service.messages.find(
-      x => x.MessageId === MessageId
+      x => x.Id === id
     ).ListOfComments;
     const dialogRef = this.dialog.open(CommentsComponent, {
       width: "800px",
       height: "600px",
       autoFocus: false,
       data: {
-        MessageId,
+        id,
         listOfComments
       }
     });
   }
 
   checkLikedMessages(MessageId: number): Boolean {
-    let Messages = this.service.messages.find(x => x.MessageId === MessageId);
+    let Messages = this.service.messages.find(x => x.Id === MessageId);
     let Liked = Messages.UserLikeList.find(x => x.Email === 'jovicic.djordje@outlook.com');
     if (Liked != null) {
       return true;
@@ -155,7 +190,7 @@ export class ShowMessageComponent implements OnInit {
   }
 
   openExpandDialog(MessageId: number): void {
-    let Messages = this.service.messages.find(x => x.MessageId === MessageId);
+    let Messages = this.service.messages.find(x => x.Id === MessageId);
     const dialogRef = this.dialog.open(OpenMessageComponent, {
       width: "800px",
       data: {
@@ -220,7 +255,7 @@ export class ShowMessageComponent implements OnInit {
     );
   }
   logout() {
-    // this.authenticationService.logout();
+    this.authenticationService.logout();
   }
 
   toggleSearchBar() {

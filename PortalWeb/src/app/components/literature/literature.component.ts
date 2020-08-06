@@ -5,6 +5,7 @@ import { Literature } from 'src/app/shared/message-detail.model';
 import { faDownload, faTrash, faEdit } from "node_modules/@fortawesome/free-solid-svg-icons";
 import { MatDialog } from "@angular/material";
 import { EditLiteratureComponent } from '../edit-literature/edit-literature.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-literature',
@@ -18,9 +19,9 @@ export class LiteratureComponent implements OnInit {
   faEdit = faEdit;
   getEmail = "muhamed.skikic@mibo.ba";
 
-  constructor(public LiteratureService: LiteratureService, public DetailService: DetailService, public dialog: MatDialog) { }
+  constructor(public LiteratureService: LiteratureService, public DetailService: DetailService, public toastr: ToastrService, public dialog: MatDialog) { }
   Literatures: Literature[];
-  
+
   ngOnInit() {
     this.LiteratureService.getLiterature().subscribe(data => {
       this.Literatures = data as Literature[];
@@ -28,8 +29,13 @@ export class LiteratureComponent implements OnInit {
   }
 
   delete(id) {
-    this.LiteratureService.deleteLiterature(id).subscribe();
-    location.reload();
+    this.LiteratureService.deleteLiterature(id).subscribe(data => {
+      this.toastr.success("Uspješno");
+      location.reload();
+    },
+      err => {
+        this.toastr.error("Pokušajte ponovo", "Došlo je do greške");
+      });
   }
 
   update(lit): void {

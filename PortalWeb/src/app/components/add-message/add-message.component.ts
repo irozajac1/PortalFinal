@@ -1,17 +1,17 @@
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
-import { MatDialogRef } from "@angular/material";
+import { MatDialogRef, DateAdapter } from "@angular/material";
 import { NgForm, FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { DetailService } from "../../shared/detail.service";
 import { LiteratureService } from "../../shared/literature.service";
 import { NewsService } from "../../shared/news.service";
-
 import { ScheduleService } from '../../shared/schedule.service';
 import { ToastrService } from "ngx-toastr";
-import { HttpEventType, HttpClient } from "@angular/common/http";
 
 import { faWindowClose } from "node_modules/@fortawesome/free-solid-svg-icons";
 import { EmployeeService } from '../../shared/employee.service';
-import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/utilities/_service/authentication.service';
+import * as jwt_decode from "jwt-decode";
+
 @Component({
   selector: "app-add-message",
   templateUrl: "./add-message.component.html",
@@ -26,7 +26,7 @@ export class AddMessageComponent implements OnInit {
   literatureForm: FormGroup;
   newsForm: FormGroup;
   faWindowClose = faWindowClose;
-
+  getEmail: string = "muhamed.skikic@mibo.ba";
   documentFile: File;
   ArrayOfFiles: any[] = [];
   selectedFile: File;
@@ -43,10 +43,21 @@ export class AddMessageComponent implements OnInit {
     public serviceSch: ScheduleService,
     public toastr: ToastrService,
     private formBuilder: FormBuilder,
+    private _adapter: DateAdapter<any>,
+    public authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
+
+    let getToken = localStorage.getItem("adal.idtoken");
+    let decode = jwt_decode(getToken);
+    let upn = decode.email; //upn za produkcijsku verziju
+    // this.getEmail = upn;
+    localStorage.setItem("upn", upn);
+
+
     this.resetForm();
+    this._adapter.setLocale('hr');
 
     this.messageForm = this.formBuilder.group({
       TextMessage: ["", Validators.required],
@@ -59,15 +70,18 @@ export class AddMessageComponent implements OnInit {
       EmailEmployee: ["", Validators.required],
       Firstname: ["", Validators.required],
       Lastname: ["", Validators.required],
-      Phone: ["", Validators.required],
-      StartDate: ["", Validators.required],
-      EmployeePicture: [""]
+      Telephone: ["", Validators.required],
+      StartOfWork: ["", Validators.required],
+      Department: ["", Validators.required],
+      Position: ["", Validators.required],
+      EndOfWork: [""],
+      EmployeePicture: [""],
     });
 
     this.documentForm = this.formBuilder.group({
       Title: ["", Validators.required],
-      Group : ["", Validators.required],
-      Link : ["", Validators.required]
+      Group: ["", Validators.required],
+      Link: ["", Validators.required]
     });
 
     this.scheduleForm = this.formBuilder.group({
@@ -78,6 +92,7 @@ export class AddMessageComponent implements OnInit {
     this.literatureForm = this.formBuilder.group({
       Title: ["", Validators.required],
       Link: ["", Validators.required],
+      Group: ["", Validators.required],
       AttachmentIds: [],
     });
     this.newsForm = this.formBuilder.group({
@@ -126,6 +141,7 @@ export class AddMessageComponent implements OnInit {
   uploadEmployeePicture(e) {
     if (e.length != 0) {
       this.selectedFile = e[0];
+      console.log(this.selectedFile.name);
     }
   }
 
@@ -176,6 +192,7 @@ export class AddMessageComponent implements OnInit {
   }
 
   onSubmitEmployees() {
+    console.log(this.employeeForm.value);
     this.serviceEmp.postUser(this.employeeForm.value, this.selectedFile).subscribe(res => {
       this.clearMessageForm();
       this.toastr.success("Uspješno");
@@ -195,6 +212,7 @@ export class AddMessageComponent implements OnInit {
       this.resetForm();
       this.service.refreshMessageList();
       this.closeClick();
+      location.reload();
     },
       err => {
         this.toastr.error("Pokušajte ponovo", "Došlo je do greške");
@@ -206,21 +224,19 @@ export class AddMessageComponent implements OnInit {
       this.clearMessageForm();
       this.toastr.success("Uspješno");
       this.resetForm();
-      this.service.refreshMessageList();
       this.closeClick();
+      location.reload();
     },
       err => {
         this.toastr.error("Pokušajte ponovo", "Došlo je do greške");
       });
   }
 
-  onSubmitDocument(arg){
-    console.log(arg)
+  onSubmitDocument(arg) {
     this.serviceLite.postDocument(arg).subscribe(res => {
       this.clearMessageForm();
       this.toastr.success("Uspješno");
       this.resetForm();
-      this.service.refreshMessageList();
       this.closeClick();
     },
       err => {

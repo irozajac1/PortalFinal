@@ -20,8 +20,8 @@ export class LiteratureService {
     return this.http.delete(this.rootURL + "/Literature/deleteLiterature/" + id);
   }
 
-  updateLiterature() {
-
+  updateLiterature(literature, id) {
+    return this.http.put(this.rootURL + "/Literature/Update/" + id, literature);
   }
 
   postLiterature(Literature: any, files: File[]): Observable<any> {
@@ -29,6 +29,7 @@ export class LiteratureService {
     formData.append("Title", Literature.Title);
     formData.append("Link", Literature.Link);
     formData.append("Email", localStorage.getItem("upn"));
+    formData.append("Group", Literature.Group);
     for (let file of files) {
       formData.append("Files", file, file.name);
     }

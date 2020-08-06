@@ -5,6 +5,7 @@ import {
   faTrash,
   faEdit
 } from "node_modules/@fortawesome/free-solid-svg-icons";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-schedule',
@@ -16,7 +17,7 @@ export class ScheduleComponent implements OnInit {
 
   faTrash = faTrash;
 
-  constructor(scheduleService: ScheduleService) {
+  constructor(public toastr: ToastrService, scheduleService: ScheduleService) {
     this.scheduleService = scheduleService;
   }
 
@@ -30,7 +31,13 @@ export class ScheduleComponent implements OnInit {
   }
 
   deleteMeeting(id) {
-    return this.scheduleService.deleteSchedule(id);
+    return this.scheduleService.deleteSchedule(id).subscribe(data => {
+      this.toastr.success("Uspješno");
+      location.reload();
+    },
+      err => {
+        this.toastr.error("Pokušajte ponovo", "Došlo je do greške");
+      });
   }
 
 

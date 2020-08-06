@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, DateAdapter } from '@angular/material';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NewsService } from 'src/app/shared/news.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-news',
@@ -10,7 +11,10 @@ import { NewsService } from 'src/app/shared/news.service';
 })
 export class EditNewsComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private newsSer: NewsService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder,
+  private _adapter: DateAdapter<any>,
+
+  private newsSer: NewsService, public toastr: ToastrService) { }
 
   newsForm: FormGroup;
 
@@ -22,7 +26,14 @@ export class EditNewsComponent implements OnInit {
   }
 
   onSubmitNews(news) {
-    return this.newsSer.editNews(news, this.data.news.Id);
+    return this.newsSer.editNews(news, this.data.news.Id).subscribe(res => {
+      this.toastr.success("Uspješno");
+      location.reload();
+    },
+      err => {
+        this.toastr.error("Pokušajte ponovo", "Došlo je do greške");
+      }
+    );;
   }
 
 }

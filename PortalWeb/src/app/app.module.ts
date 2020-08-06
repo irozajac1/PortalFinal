@@ -15,19 +15,23 @@ import {
   MatBadgeModule,
   MatSelectModule,
   MatOptionModule,
-  MatListModule
+  MatListModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from "@angular/material";
+
+
 import { DetailService } from "./shared/detail.service";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { ToastrModule } from "ngx-toastr";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { CommentsComponent } from "./components/comments/comments.component";
-// import {
-//   MsAdalAngular6Module,
-//   AuthenticationGuard
-// } from "microsoft-adal-angular6";
-// import { JwtInterceptor } from "./_helpers/jwt.interceptor";
+import {
+  MsAdalAngular6Module,
+  AuthenticationGuard
+} from "microsoft-adal-angular6";
+import { JwtInterceptor } from "./utilities/_helpers/jwt.interceptor";
 import { ShowMessageComponent } from "./components/show-message/show-message.component";
 import { AddMessageComponent } from "./components/add-message/add-message.component";
 import { CommonModule } from "@angular/common";
@@ -84,9 +88,11 @@ import { EditNewsComponent } from './components/edit-news/edit-news.component';
     MatDialogModule,
     MatToolbarModule,
     MatTabsModule,
+    MatNativeDateModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatListModule,
+    MatDatepickerModule,
     FormsModule,
     MatSelectModule,
     MatOptionModule,
@@ -97,21 +103,21 @@ import { EditNewsComponent } from './components/edit-news/edit-news.component';
     FontAwesomeModule,
     NgxFileDropModule,
     MatChipsModule,
-    // MsAdalAngular6Module.forRoot({
-    //   // instance: "https://login.microsoftonline.com/",
-    //   // tenant: "0329a311-16b0-49e5-98f9-0a71d1134f6f", //
-    //   // clientId: "5b78ed9a-fde9-4d6a-8b04-48a49752ef92", //
-    //   // redirectUri: "https://pdp.mibo.ba",
-    //   // navigateToLoginRequestUrl: true, // false je bilo
-    //   // cacheLocation: "localStorage"
+    MsAdalAngular6Module.forRoot({
+      // instance: "https://login.microsoftonline.com/",
+      // tenant: "0329a311-16b0-49e5-98f9-0a71d1134f6f", //
+      // clientId: "5b78ed9a-fde9-4d6a-8b04-48a49752ef92", //
+      // redirectUri: "https://pdp.mibo.ba",
+      // navigateToLoginRequestUrl: true, // false je bilo
+      // cacheLocation: "localStorage"
 
-    //   instance: 'https://login.microsoftonline.com/',
-    //   tenant: '783f3846-1a66-47b4-9188-c2e65baabcfa', //
-    //   clientId: '8deb6b84-8d3b-473f-8685-7de630899343', //
-    //   redirectUri: 'http://localhost:4200/',
-    //   navigateToLoginRequestUrl: true, // false je bilo
-    //   cacheLocation: 'localStorage',
-    // })
+      instance: 'https://login.microsoftonline.com/',
+      tenant: '783f3846-1a66-47b4-9188-c2e65baabcfa', //
+      clientId: '8deb6b84-8d3b-473f-8685-7de630899343', //
+      redirectUri: 'http://localhost:4200/',
+      navigateToLoginRequestUrl: true, // false je bilo
+      cacheLocation: 'localStorage',
+    })
   ],
   entryComponents: [
     AddMessageComponent,
@@ -123,9 +129,9 @@ import { EditNewsComponent } from './components/edit-news/edit-news.component';
     EditNewsComponent
   ],
   providers: [
-    DetailService,
-    // AuthenticationGuard,
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    DetailService, MatDatepickerModule,
+    AuthenticationGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

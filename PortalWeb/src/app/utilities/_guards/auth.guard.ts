@@ -7,11 +7,9 @@ import { AuthenticationService } from '../_service/authentication.service';
 @Injectable({ providedIn: 'root' })
 
 export class AuthGuard {
-    //private adalSvc;
-    // constructor(private router: Router, private authenticationService: AuthenticationService, 
-    //      private adal: MsAdalAngular6Service) {
-    // }
-
-  
+    private adalSvc;
+    constructor(private router: Router, private authenticationService: AuthenticationService, 
+         private adal: MsAdalAngular6Service) {
+    } 
 }
 

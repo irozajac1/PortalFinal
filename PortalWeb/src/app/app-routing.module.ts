@@ -8,15 +8,16 @@ import { DocumentationComponent } from './components/documentation/documentation
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { AboutComponent } from './components/about/about.component';
 import { LiteratureComponent } from './components/literature/literature.component';
+import { AuthenticationGuard } from 'microsoft-adal-angular6';
 // import { AuthenticationGuard } from 'microsoft-adal-angular6';
 
 const routes: Routes = [
   // { path: '', component: ShowMessageComponent, pathMatch: 'full', canActivate: [AuthenticationGuard] },
-  { path: '', component: ShowMessageComponent, pathMatch: 'full' },
   // { path: '**', redirectTo: '' },
   {
-    path: '', component: ShowMessageComponent,
+    path: '', component: ShowMessageComponent, pathMatch: 'full', canActivate: [AuthenticationGuard],
     children: [
+      { path: '', component: AboutComponent },
       { path: 'Messages', component: MessagesComponent },
       { path: 'Employees', component: EmployeesComponent },
       { path: 'News', component: NewsComponent },

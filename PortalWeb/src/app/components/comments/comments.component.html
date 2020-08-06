@@ -4,7 +4,7 @@
       <mat-icon id="close-icon">close</mat-icon>
     </button>
   </div>
-  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit(this.recvData.id)">
     <mat-card class="content">
       <mat-form-field class="comment-full-width ">
         <textarea matInput name="TextComment" placeholder="Ostavite komentar" [matTextareaAutosize] required
