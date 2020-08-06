@@ -1,0 +1,14 @@
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace WebApplication1.Models
+{
+    public class DocumentRequest
+    {
+        public string Title { get; set; }
+        public IFormFile Attachment { get; set; }
+    }
+}
