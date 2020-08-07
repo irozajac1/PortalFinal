@@ -43,7 +43,7 @@ namespace WebApplication1.Controllers
             return Ok(literature);
         }
 
-        //[HttpGet("{id}")]
+        [HttpGet("{id}")]
         public IActionResult Download(Guid id)
         {
             return service.DownloadFile(id);
