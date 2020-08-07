@@ -359,3 +359,17 @@ MigrationBackup/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
 *WebApplication1.assets.cache
+/PortalApi/WebApplication1/obj/WebApplication1.csproj.nuget.g.targets
+/PortalApi/WebApplication1/bin/Debug/netcoreapp2.2/WebApplication1.deps.json
+/PortalApi/WebApplication1/bin/Debug/netcoreapp2.2/WebApplication1.dll
+/PortalApi/WebApplication1/bin/Debug/netcoreapp2.2/WebApplication1.pdb
+/PortalApi/WebApplication1/obj/Debug/netcoreapp2.2/WebApplication1.assets.cache
+/PortalApi/WebApplication1/obj/Debug/netcoreapp2.2/WebApplication1.csproj.FileListAbsolute.txt
+/PortalApi/WebApplication1/obj/Debug/netcoreapp2.2/WebApplication1.dll
+/PortalApi/WebApplication1/obj/Debug/netcoreapp2.2/WebApplication1.pdb
+/PortalApi/WebApplication1/obj/WebApplication1.csproj.nuget.cache
+/PortalApi/WebApplication1/obj/WebApplication1.csproj.nuget.dgspec.json
+/PortalApi/WebApplication1/obj/WebApplication1.csproj.nuget.g.props
+/PortalApi/WebApplication1/obj/WebApplication1.csproj.nuget.g.targets
+/PortalApi/.vs/WebApplication1/v16/.suo
+/PortalApi/WebApplication1/obj/Debug/netcoreapp2.2/WebApplication1.assets.cache
