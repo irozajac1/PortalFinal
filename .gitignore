@@ -373,3 +373,5 @@ MigrationBackup/
 /PortalApi/WebApplication1/obj/WebApplication1.csproj.nuget.g.targets
 /PortalApi/.vs/WebApplication1/v16/.suo
 /PortalApi/WebApplication1/obj/Debug/netcoreapp2.2/WebApplication1.assets.cache
+/PortalApi/WebApplication1/obj/*
+/PortalApi/WebApplication1/bin/*
