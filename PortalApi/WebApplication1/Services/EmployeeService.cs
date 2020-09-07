@@ -42,7 +42,7 @@ namespace WebApplication1.Services
         {
             Employee employee = new Employee();
             var doc = new Attachment();
-            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Employees\\";
+            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Upload\\";
             var employePicture = employeeRequest.EmployeePicture;
 
             if (employePicture != null)

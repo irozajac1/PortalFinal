@@ -1,0 +1,47 @@
+<div class="close">
+  <button mat-raised-button (click)="closeClick()">
+    <mat-icon id="close-icon">close</mat-icon>
+  </button>
+</div>
+<form [formGroup]="approvedForm">
+  <p class="textmessage">Nema prijedloga</p>
+  <span *ngFor="let message of service.messages" class="dialogmessage">
+    <mat-card class="message-card" *ngIf="message.IsApproved == false && message.IsDeleted == false">
+      <div class="email">
+        <mat-icon class="accounticon">account_circle</mat-icon>{{message.Email}}
+      </div>
+      <mat-card-content>
+        <div class="messagetext">
+          <mat-card>
+            <p class="limitedText">{{message.TextMessage}}</p>
+          </mat-card>
+        </div>
+        <p>{{message.CurrentDate | date:'HH:mm   dd.MM.yyyy.'}}</p>
+        <p>Grupa: Razmjena prijedloga za dobre prakse</p>
+        <div>
+          <span id="chips" *ngFor="let att of message.Attachments">
+            <mat-chip-list id="chip" class="no-wrap">
+              <mat-chip (click)="downloadFile(att.AttachmentId)">{{ att.AttachmentFileName }}
+              </mat-chip>
+              <fa-icon [icon]="faDownload" (click)="downloadFile(att.AttachmentId)" class="fa-lg"></fa-icon>
+            </mat-chip-list>
+          </span>
+        </div>
+        <mat-card-actions >
+          <div class="allowbtn" *ngIf="getEmail == 'muhamed.skikic@mibo.ba' || 'almedina.karalic@mibo.ba'">
+            <button mat-button class="checkbtn"
+              (click)="approvedMessage(message.Id, message.TextMessage, message.Email, message.Group)"
+              matTooltip="Odobrite prijedlog">
+              <mat-icon aria-hidden="false" aria-label=" ">check</mat-icon>
+            </button>
+            <button mat-button color="warn"
+              (click)="onHardDelete(message.Id)"
+              matTooltip="Odbacite prijedlog">
+              <mat-icon aria-hidden="false" aria-label=" ">clear</mat-icon>
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </span>
+</form>

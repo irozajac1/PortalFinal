@@ -1,0 +1,28 @@
+<div class="schedule">
+  <span *ngFor="let schedule of Schedules" class="dialogmessage">
+    <mat-card class="message-card">
+      <mat-card-title>Link za sastanak:</mat-card-title>
+      <mat-card-content>
+        <div class="messagetext">
+          <mat-card>
+            <p id="messageShort">
+              <a href={{schedule.Url}} target="_blank">
+                {{ schedule.Url }}
+              </a>
+            </p>
+          </mat-card>
+        </div>
+        <mat-card-actions>
+          <div class="allowbtn">
+            <button mat-button color="primary" (click)="updateSchedule(schedule)">
+              <fa-icon *ngIf="isAdmin" [icon]="faEdit" class="fa-lg"></fa-icon>
+            </button>
+            <button mat-button color="warn" (click)="deleteMeeting(schedule.Id)">
+              <fa-icon *ngIf="isAdmin" [icon]="faTrash" class="fa-lg"></fa-icon>
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </span>
+</div>

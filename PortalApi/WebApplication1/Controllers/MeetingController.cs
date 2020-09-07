@@ -62,7 +62,7 @@ namespace WebApplication1.Controllers
 
         //PUT : api/Meeting/UpdateLink
         [HttpPut("UpdateLink/{id}")]
-        public IActionResult UpdateLink(Meetings meeting, Guid id)
+        public IActionResult UpdateLink(Guid id, Meetings meeting)
         {
             try
             {

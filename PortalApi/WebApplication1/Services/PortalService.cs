@@ -64,7 +64,7 @@ namespace WebApplication1.Services
         }
         public void PostFile(IFormFile myfile)
         {
-            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Files\\";
+            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Upload\\";
 
             if (myfile != null)
             {

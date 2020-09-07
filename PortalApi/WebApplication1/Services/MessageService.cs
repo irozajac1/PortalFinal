@@ -56,7 +56,7 @@ namespace WebApplication1.Services
         public FileStreamResult DownloadFile(Guid id)
         {
             var attachment = attrepository.GetById(id);
-            var upload = _configuration.GetSection("Paths:Archive").Value + "\\Files\\";
+            var upload = _configuration.GetSection("Paths:Archive").Value + "\\Upload\\";
             var filePath = Path.Combine(upload, attachment.AttachmentFileReference.ToString());
 
             //if (!System.IO.File.Exists(filePath))

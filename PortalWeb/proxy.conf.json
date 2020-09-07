@@ -1,0 +1,7 @@
+{  
+    "/api/*": {  
+       "target": "https://pdp.mibo.ba:5001",  
+       "secure": false,  
+       "logLevel": "debug"  
+    }  
+ } 

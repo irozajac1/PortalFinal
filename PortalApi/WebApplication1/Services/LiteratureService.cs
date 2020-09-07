@@ -48,7 +48,7 @@ namespace WebApplication1.Services
         public void PostLiterature(LiteratureRequest literatueRequest)
         {
             var attachment = new Attachment();
-            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Literature\\";
+            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Upload\\";
             var files = literatueRequest.Files;
             if (files != null)
             {

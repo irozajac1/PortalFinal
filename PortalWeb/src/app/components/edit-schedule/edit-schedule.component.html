@@ -1,0 +1,11 @@
+<form [formGroup]="editSchedForm" (ngSubmit)="onSubmitSch(this.data.sch.Id)">
+
+  <mat-form-field>
+    <mat-label>Link</mat-label>
+    <input matInput placeholder="{{this.data.sch.Url}}" value="{{this.data.sch.Url}}"
+      formControlName="Url">
+  </mat-form-field>
+
+  <button type="submit" mat-flat-button color="primary">Uredi</button>
+
+</form>

@@ -17,6 +17,7 @@ using WebApplication1.Models;
 namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
+    [Microsoft.AspNetCore.Cors.EnableCors("CORS")]
     [ApiController]
     public class MessagesController : ControllerBase
     {

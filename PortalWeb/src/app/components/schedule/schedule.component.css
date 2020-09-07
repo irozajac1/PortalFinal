@@ -1,0 +1,60 @@
+.schedule {
+    padding-top: 50px;
+}
+
+.schedule .message-card {
+    max-width: 800px;
+    height: auto;
+    width: 100%;
+    padding: auto;
+    margin: 20px auto;
+    float: center;
+    background-color: #f8f8f8;
+}
+
+.schedule #messageShort {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 100ch;
+}
+
+.schedule .accounticon {
+    text-align: left;
+    padding-right: 20px;
+}
+
+.schedule .messagetext {
+    margin: 0px;
+    float: center;
+}
+
+.schedule .message-card {
+    width: auto;
+    padding: auto 5px;
+}
+
+.schedule #chips {
+    margin: 5px 10px;
+    display: inline-block;
+}
+
+.schedule #chips:hover {
+    cursor: pointer;
+}
+
+.schedule mat-chip-list {
+    margin: 10px;
+}
+
+.schedule .allowbtn {
+    text-align: right;
+}
+
+.email {
+    margin: 10px;
+}
+
+.messagetext {
+    height: auto;
+}

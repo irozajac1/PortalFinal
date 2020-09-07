@@ -1,0 +1,22 @@
+<form [formGroup]="editLiteratureForm" (ngSubmit)="editLiterature(this.recvData.lit.Id)">
+
+  <mat-form-field>
+    <mat-label>Naziv</mat-label>
+    <input matInput placeholder="{{this.recvData.lit.Title}}" value="{{this.recvData.lit.Title}}"
+      formControlName="Title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Grupa</mat-label>
+    <input matInput placeholder="{{this.recvData.lit.Group}}" value="{{this.recvData.lit.Group}}"
+      formControlName="Group">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Link</mat-label>
+    <input matInput placeholder="{{this.recvData.lit.Link}}" value="{{this.recvData.lit.Link}}" formControlName="Link">
+  </mat-form-field>
+
+  <button type="submit" mat-flat-button color="primary">Uredi</button>
+
+</form>

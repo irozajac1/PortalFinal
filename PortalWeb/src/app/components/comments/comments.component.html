@@ -1,0 +1,32 @@
+<div class="matdialog">
+  <div class="close">
+    <button mat-raised-button (click)="closeClick()">
+      <mat-icon id="close-icon">close</mat-icon>
+    </button>
+  </div>
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit(this.recvData.id)">
+    <mat-card class="content">
+      <mat-form-field class="comment-full-width ">
+        <textarea matInput name="TextComment" placeholder="Ostavite komentar" [matTextareaAutosize] required
+          formControlName="TextComment"></textarea>
+        <div class="sendcommentbtn">
+          <button mat-mini-fab color="white" matTooltip="Pošalji" type="submit">
+            <mat-icon aria-hidden="false" aria-label=" " class="sendicon">send</mat-icon>
+          </button>
+        </div>
+        <mat-error *ngIf="commentForm.invalid">*Polje je obavezno</mat-error>
+      </mat-form-field>
+    </mat-card>
+  </form>
+  <span *ngFor="let comment of recvData.listOfComments">
+    <div class="commentcard">
+      <div class="email">
+        <mat-icon class="accounticon">account_circle</mat-icon> {{comment.Email}}
+      </div>
+      <div class="textcomment">
+        {{comment.TextComment}}
+      </div>
+    </div>
+    <p>{{comment.CurrentDateTime | date:'HH:mm   dd.MM.yyyy.'}}</p>
+  </span>
+</div>

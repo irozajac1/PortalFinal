@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\irma.rozajac\\Desktop\\Portal-master\\PortalApi\\WebApplication1\\WebApplication1.csproj": {}
+    "D:\\Projekti\\Final\\PortalApi\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\irma.rozajac\\Desktop\\Portal-master\\PortalApi\\WebApplication1\\WebApplication1.csproj": {
+    "D:\\Projekti\\Final\\PortalApi\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\irma.rozajac\\Desktop\\Portal-master\\PortalApi\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "D:\\Projekti\\Final\\PortalApi\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\irma.rozajac\\Desktop\\Portal-master\\PortalApi\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "D:\\Projekti\\Final\\PortalApi\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\irma.rozajac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\irma.rozajac\\Desktop\\Portal-master\\PortalApi\\WebApplication1\\obj\\",
+        "outputPath": "D:\\Projekti\\Final\\PortalApi\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

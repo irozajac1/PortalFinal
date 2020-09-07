@@ -1,0 +1,9 @@
+#news{
+    padding-top: 70px;
+    display: grid;
+    margin: 10px 1%;
+}
+
+#news .allowbtn {
+    text-align: right;
+}
