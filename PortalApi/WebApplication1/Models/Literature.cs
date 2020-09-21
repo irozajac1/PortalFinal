@@ -10,7 +10,7 @@ namespace WebApplication1.Models
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Group { get; set; }
-        public string Link { get; set; }
+        public List<Link> Links { get; set; }
         public Attachment Files { get; set; }
         public string Email { get; set; }
         public bool IsApproved { get; set; }

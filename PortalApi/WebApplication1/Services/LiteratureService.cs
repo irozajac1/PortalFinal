@@ -30,13 +30,21 @@ namespace WebApplication1.Services
 
         public void DeleteLiterature(Guid id)
         {
-            var literature = repository.GetById(id);
+            var literature = repository.IncludeAll().ToList().FirstOrDefault(x => x.Id == id);
             repository.Delete(literature);
         }
 
         public List<Literature> GetAll()
         {
-            return repository.GetAll().ToList();
+            try
+            {
+                var x = repository.IncludeAll().ToList();
+                return x;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
 
@@ -48,7 +56,7 @@ namespace WebApplication1.Services
         public void PostLiterature(LiteratureRequest literatueRequest)
         {
             var attachment = new Attachment();
-            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Upload\\";
+            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Literature\\";
             var files = literatueRequest.Files;
             if (files != null)
             {
@@ -76,20 +84,40 @@ namespace WebApplication1.Services
                 }
 
             }
-            var literature = new Literature
+
+            var tempLinkList = new List<Link>();
+
+            foreach (var url in literatueRequest.Links)
             {
-                Files = attachment,
+                var link = new Link()
+                {
+                    UrlLink = url
+                };
+                tempLinkList.Add(link);
+            }
+
+                var literature = new Literature
+            {
                 Email = literatueRequest.Email,
-                IsApproved = false,
+                IsApproved = true,
                 IsDeleted = false,
                 Title = literatueRequest.Title,
-                Link = literatueRequest.Link,
                 Group = literatueRequest.Group,
                
             };
+
+            if (attachment != null)
+            {
+                literature.Files = attachment;
+            }
+
+            if (tempLinkList.Count != 0)
+            {
+                literature.Links = tempLinkList;
+            }
+
             repository.Insert(literature);
         }
-
         public int GetNotApproved()
         {
             var nummber = repository.GetAll().Where(x => x.IsApproved == false && x.IsDeleted == false).Count();
@@ -99,7 +127,7 @@ namespace WebApplication1.Services
         public FileStreamResult DownloadFile(Guid id)
         {
             var attachment = attrepository.GetById(id);
-            var upload = _configuration.GetSection("Paths:Archive").Value + "\\Files\\";
+            var upload = _configuration.GetSection("Paths:Archive").Value + "\\Literature\\";
             var filePath = Path.Combine(upload, attachment.AttachmentFileReference.ToString());
 
             var memory = new MemoryStream();
@@ -128,12 +156,17 @@ namespace WebApplication1.Services
 
         public void UpdateLiterature(Literature l, Guid id)
         {
-            var literature = repository.GetById(id);
+            var literature = repository.IncludeAll().ToList().FirstOrDefault(x => x.Id == id);
 
             literature.Group = l.Group;
-            literature.Link = l.Link;
             literature.Title = l.Title;
             literature.Files = l.Files;
+
+
+            for (int i = 0; i < l.Links.Count; i++)
+            {
+                literature.Links[i].UrlLink = l.Links[i].UrlLink;
+            }
 
             repository.Update(literature);
         }

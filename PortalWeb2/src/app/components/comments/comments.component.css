@@ -1,0 +1,39 @@
+.matdialog {
+  display: inherit;
+  overflow: auto;
+}
+.content {
+  margin-top: 10px;
+  /* min-width: 480px; */
+  margin-bottom: 20px;
+}
+.sendbtn {
+  width: 100%;
+  text-align: center;
+  font-size: large;
+  size: 50px;
+}
+.close {
+  text-align: right;
+}
+.comment-full-width {
+  width: 100%;
+}
+.commentcard {
+  margin-top: 50px;
+  border-bottom: 1px solid grey;
+  margin-left: 0px;
+}
+.sendcommentbtn {
+  text-align: right;
+}
+.sendicon {
+  color: #3f3f3f;
+}
+.textcomment {
+  padding-top: 50px;
+  white-space: pre-line;
+}
+.email {
+  float: left;
+}

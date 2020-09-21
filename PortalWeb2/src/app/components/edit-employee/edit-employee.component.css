@@ -1,0 +1,53 @@
+form mat-form-field {
+    display: block;
+}
+
+.upload-file-field {
+    margin-top: 25px;
+  }
+  
+  #upload-file-button {
+    margin-left: 15px;
+  }
+  
+  #chips {
+    margin-top: 15px;
+  }
+  
+  mat-chip-list {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin: 10px 0;
+  }
+  
+  .btn:hover {
+    cursor: pointer;
+  }
+  
+  .btn {
+    border: 1px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  
+  #closeIcon {
+    margin: 5px;
+  }

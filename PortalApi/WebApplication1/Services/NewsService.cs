@@ -43,6 +43,8 @@ namespace WebApplication1.Services
 
             newDetail.Content = news.Content;
             newDetail.DateOfEvent = news.DateOfEvent;
+            newDetail.Title = news.Title;
+            newDetail.Link = news.Link;
 
             repository.Update(newDetail);
         }

@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public async Task<ActionResult<IList<Literature>>> GetLiterature()
         {
-            return service.GetAll();
+            return service.GetAll().ToList();
         }
 
         // GET: api/Literature/literatureById
@@ -51,7 +51,7 @@ namespace WebApplication1.Controllers
 
         // POST: api/Literature/SendLiterature
         [HttpPost("SendLiterature")]
-        public IActionResult PostLiterature([FromForm] LiteratureRequest  request)
+        public IActionResult PostLiterature([FromForm] LiteratureRequest request)
         {
             service.PostLiterature(request);
             return Ok();

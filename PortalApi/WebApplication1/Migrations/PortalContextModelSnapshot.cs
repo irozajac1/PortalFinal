@@ -115,6 +115,22 @@ namespace WebApplication1.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.Link", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid?>("LiteratureId");
+
+                    b.Property<string>("UrlLink");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LiteratureId");
+
+                    b.ToTable("Links");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Literature", b =>
                 {
                     b.Property<Guid>("Id")
@@ -129,8 +145,6 @@ namespace WebApplication1.Migrations
                     b.Property<bool>("IsApproved");
 
                     b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("Link");
 
                     b.Property<string>("Title");
 
@@ -186,6 +200,10 @@ namespace WebApplication1.Migrations
 
                     b.Property<DateTime>("DateOfEvent");
 
+                    b.Property<string>("Link");
+
+                    b.Property<string>("Title");
+
                     b.HasKey("Id");
 
                     b.ToTable("News");
@@ -229,6 +247,13 @@ namespace WebApplication1.Migrations
                     b.HasOne("WebApplication1.Models.Attachment", "EmployeePicture")
                         .WithMany()
                         .HasForeignKey("EmployeePictureAttachmentId");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Link", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Literature")
+                        .WithMany("Links")
+                        .HasForeignKey("LiteratureId");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Literature", b =>

@@ -10,7 +10,7 @@ import { fromEvent, from, Observable } from "rxjs";
 export class DetailService {
   fromDataMessage: MessageDetail;
   fromDataComment: CommentDetail;
-  readonly rootURL = "https://pdp.mibo.ba:5001/api";
+  readonly rootURL = "https://localhost:5001/api";
   messages: MessageDetail[];
   comments: CommentDetail[];
   listFOrmData: any[] = [];

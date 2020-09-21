@@ -13,7 +13,7 @@ import { AuthenticationGuard } from 'microsoft-adal-angular6';
 const routes: Routes = [
   {
     //
-    path: '', component: ShowMessageComponent, canActivate: [AuthenticationGuard],
+    path: '', component: ShowMessageComponent, 
     children: [
       { path: '', component: AboutComponent },
       { path: 'Messages', component: MessagesComponent },

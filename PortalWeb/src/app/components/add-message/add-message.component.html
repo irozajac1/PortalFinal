@@ -9,7 +9,7 @@
       <mat-form-field class="selectedgroup">
         <mat-label>Izaberite grupu</mat-label>
         <mat-select name="Group" matSelect formControlName="Group" required>
-          <mat-option *ngIf="isAdmin" value="uposlenici">Zaposlenici</mat-option>
+          <mat-option  value="uposlenici">Zaposlenici</mat-option>
           <mat-option value="prijedlozi">Razmjena prijedloga dobre prakse</mat-option>
           <mat-option *ngIf="isAdmin" value="dokumentacija">Pravilnici</mat-option>
           <mat-option *ngIf="isAdmin" value="literatura">Literatura</mat-option>

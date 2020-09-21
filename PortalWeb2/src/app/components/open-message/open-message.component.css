@@ -1,0 +1,23 @@
+fa-icon {
+    margin: auto 1%;
+}
+
+.alignRight {
+    float: right;
+}
+
+#openMessageComment{
+    margin-top: 10px;
+ }
+ .limitedText{
+    white-space: pre-wrap;
+ }
+
+ mat-form-field, input {
+     width: fit-content;
+ }
+
+ #chips {
+     padding: 10px;
+ }
+ 

@@ -8,7 +8,7 @@ import { News } from './message-detail.model';
 })
 export class NewsService {
 
-  readonly rootURL = "https://pdp.mibo.ba:5001/api";
+  readonly rootURL = "https://localhost:5001/api";
 
   constructor(private http: HttpClient) { }
 

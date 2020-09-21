@@ -8,7 +8,9 @@ namespace WebApplication1.Models
     public class News
     {
         public Guid Id { get; set; }
+        public string Title { get; set; }
         public string Content { get; set; }
+        public string Link { get; set; }
         public DateTime DateNow { get; set; }
         public News()
         {
@@ -16,5 +18,6 @@ namespace WebApplication1.Models
         }
 
         public DateTime DateOfEvent { get; set; }
+         
     }
 }

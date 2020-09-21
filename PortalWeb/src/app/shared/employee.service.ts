@@ -10,7 +10,7 @@ export class EmployeeService {
 
   fromDataUser: Employee;
   fromDataLike: UserLike;
-  readonly rootURL = "https://pdp.mibo.ba:5001/api";
+  readonly rootURL = "https://localhost:5001/api";
 
   employee: Employee[];
   listOfLikes: UserLike[];
@@ -42,6 +42,11 @@ export class EmployeeService {
 
   getEmployees<Employee>() {
     return this.http.get(this.rootURL + "/Employee/getEmployees");
+  }
+
+  getImg(arg) {
+    var x = this.rootURL + "/Employee/" + arg;
+    return x;
   }
 
   deleteEmployee(id): Observable<any> {

@@ -16,7 +16,6 @@ namespace WebApplication1.Models
         public string Telephone { get; set; }
         public string ExtensionNumber { get; set; }
         public string StartOfWork { get; set; }
-        public string EndOfWork { get; set; }
         public IFormFile EmployeePicture { get; set; }
     }
 }

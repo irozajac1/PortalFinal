@@ -1,0 +1,37 @@
+<span>
+  <mat-card-content>
+    <div class="messagetext">
+      <mat-card>
+        <p class="limitedText">{{ this.recvData.Messages.TextMessage }}</p>
+      </mat-card>
+    </div>
+    <div *ngIf="addComment" id="openMessageComment">
+      <form [formGroup]="addCommentForm" (ngSubmit)="onSubmit(this.recvData.Messages.Id)">
+        <mat-form-field>
+          <input formControlName="TextComment" matInput placeholder="Unesite komentar" />
+          <button class="alignRight" mat-mini-fab color="white" matTooltip="Pošalji" type="submit">
+            <mat-icon aria-hidden="false" aria-label=" " class="sendicon">send</mat-icon>
+          </button>
+          <mat-error *ngIf="addCommentForm.invalid">*Polje je obavezno</mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+  </mat-card-content>
+  <div>
+    <span id="chips" *ngFor="let att of this.recvData.Messages.Attachments">
+      <mat-chip-list id="chip" class="no-wrap">
+        <mat-chip (click)="downloadFile(att.AttachmentId)">{{ att.AttachmentFileName }}
+          <fa-icon [icon]="faDownload" (click)="downloadFile(att.AttachmentId)" class="fa-lg"></fa-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </span>
+  </div>
+  <fa-icon [icon]="faClock" class="fa-lg"></fa-icon>
+  Objavljeno:
+  {{ this.recvData.Messages.CurrentDate | date: "HH:mm   dd.MM.yyyy." }}
+</span>
+<span>
+  <button class="alignRight" mat-button color="primary" (click)="openCommentInput()" matTooltip="Ostavite komentar">
+    <fa-icon [icon]="faComment" *ngIf="!addComment" class="fa-lg"></fa-icon>
+  </button>
+</span>

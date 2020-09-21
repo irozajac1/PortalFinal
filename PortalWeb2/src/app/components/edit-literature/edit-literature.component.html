@@ -1,0 +1,30 @@
+<form [formGroup]="editLiteratureForm" (ngSubmit)="editLiterature(this.recvData.lit.Id)">
+
+  <mat-form-field>
+    <mat-label>Naziv</mat-label>
+    <input matInput placeholder="{{this.recvData.lit.Title}}" value="{{this.recvData.lit.Title}}"
+      formControlName="Title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Grupa</mat-label>
+    <input matInput placeholder="{{this.recvData.lit.Group}}" value="{{this.recvData.lit.Group}}"
+      formControlName="Group">
+  </mat-form-field>
+
+
+  <mat-form-field style="z-index: 0;" *ngFor="let link of this.recvData.lit.Links; let index = index">
+    <mat-label>Link</mat-label>
+    <div style="display: grid; grid-template-columns: 9fr 1fr;">
+      <input  matInput placeholder="{{link.UrlLink}}" value="{{link.UrlLink}}" formControlName="Links">
+      <div style="text-align: center; z-index: 1000000;" (click)="changeLink(editLiteratureForm.value.Links, index)">
+        <fa-icon [icon]="faCheck" class="fa-lg"></fa-icon>
+      </div>
+    </div>
+
+  </mat-form-field>
+
+
+  <button type="submit" mat-flat-button color="primary">Uredi</button>
+
+</form>

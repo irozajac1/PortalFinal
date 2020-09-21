@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace WebApplication1.Interface
         Employee GetEmployeeById(Guid id);
         void PostEmployee(EmployeeRequest employee);
         void DeleteEmployee(Guid id);
-        void UpdateEmployee(Guid id, Employee employee);
+        void UpdateEmployee(Guid id, EmployeeRequest employee);
+        FileStreamResult DownloadFile(Guid id);
     }
 }

@@ -12973,11 +12973,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projekti\\Final\\PortalApi\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "D:\\Projekti\\PortalFinal\\PortalApi\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "D:\\Projekti\\Final\\PortalApi\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "D:\\Projekti\\PortalFinal\\PortalApi\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\irma.rozajac\\.nuget\\packages\\",
-      "outputPath": "D:\\Projekti\\Final\\PortalApi\\WebApplication1\\obj\\",
+      "outputPath": "D:\\Projekti\\PortalFinal\\PortalApi\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13051,7 +13051,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

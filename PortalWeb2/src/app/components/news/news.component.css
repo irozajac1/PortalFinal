@@ -1,0 +1,19 @@
+#news{
+    padding-top: 70px;
+    display: grid;
+    margin: 10px 1%;
+}
+
+#news .allowbtn {
+    text-align: right;
+}
+
+.message-card {
+    max-width: 1000px;
+    height: auto;
+    width: 100%;
+    padding: auto;
+    margin: 20px auto;
+    float: center;
+    background-color: #f8f8f8;
+}

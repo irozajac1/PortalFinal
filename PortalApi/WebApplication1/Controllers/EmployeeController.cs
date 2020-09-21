@@ -53,6 +53,13 @@ namespace WebApplication1.Controllers
         }
 
 
+        [HttpGet("{id}")]
+        public IActionResult Download(Guid id)
+        {
+            return _service.DownloadFile(id);
+        }
+
+
 
         // DELETE: api/Employee/deleteEmployee
         [HttpDelete("deleteEmployee/{id}")]
@@ -62,9 +69,9 @@ namespace WebApplication1.Controllers
             return Ok();
         }
 
-        //PUT : api/Employee/Update
+        //PUT : api/Employee/Update/{id}
         [HttpPut("Update/{id}")]
-        public IActionResult UpdateEmployee(Guid id, [FromBody] Employee employee)
+        public IActionResult UpdateEmployee(Guid id, [FromForm] EmployeeRequest employee)
         {
             try
             {

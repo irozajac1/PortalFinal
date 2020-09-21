@@ -29,7 +29,8 @@ export class EmployeesComponent implements OnInit {
 
   ngOnInit() {
     this.EmployeeService.getEmployees().subscribe(data => { this.Employees = data as Employee[]; 
-    console.log(this.Employees)});
+      console.log(data)
+    });
     this.checkAdmin();
   }
 
@@ -39,10 +40,14 @@ export class EmployeesComponent implements OnInit {
     }
   }
 
+
   uploadFileSave(e) {
     if (e.length != 0) {
       this.ArrayOfFiles.push(e[0]);
     }
+  }
+  getImgs(e){
+   return this.EmployeeService.getImg(e);
   }
 
   deleteDocument(id) {

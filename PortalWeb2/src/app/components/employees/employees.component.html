@@ -1,0 +1,61 @@
+<main>
+  <mat-card *ngFor="let emp of Employees; let index = index">
+    <mat-card-header>
+      <div style="width: 80%; padding: 10px 25px 0 0;">
+        <mat-card-title>
+          <b>
+            {{ emp.Firstname }} {{ emp.Lastname }}
+          </b>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <b>
+            {{ emp.Department }}: {{ emp.Position }}
+          </b>
+        </mat-card-subtitle>
+        <hr>
+        <p>
+          Email:
+          <br>
+          <b (click)="openEmail(emp.Email)">
+            {{ emp.Email }}
+          </b>
+        </p>
+        <p>
+          Broj telefona:
+          <br>
+          <b>
+            {{ emp.Telephone }}
+          </b>
+        </p>
+        <p>
+          Broj mobilnog telefona:
+          <br>
+          <b>
+            {{ emp.ExtensionNumber }}
+          </b>
+        </p>
+        <p>
+          Početak radnog odnosa:
+          <br>
+          <b>
+            {{ emp.StartOfWork | date: 'dd.MM.yyyy.' }}
+          </b>
+        </p>
+      </div>
+      <div style="display: flex; width: 100%;">
+        <img *ngIf="emp.EmployeePicture" mat-card-image [src]="getEmployeeImages(emp.EmployeePicture.AttachmentId)"
+          alt="{{emp.Firstname}} {{emp.Lastname}}">
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="allowbtn" style="padding-top: 20px">
+        <button mat-button color="primary" (click)="editEmployee(emp)">
+          <fa-icon *ngIf="isAdmin" [icon]="faEdit" class="fa-lg"></fa-icon>
+        </button>
+        <button mat-button color="warn" (click)="deleteDocument(emp.Id)">
+          <fa-icon *ngIf="isAdmin" [icon]="faTrash" class="fa-lg"></fa-icon>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</main>

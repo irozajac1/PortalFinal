@@ -1,0 +1,30 @@
+<form [formGroup]="newsForm" class="example-form" (ngSubmit)="onSubmitNews(newsForm.value)">
+
+  <mat-card class="messagecontet">
+    <mat-form-field class="message-full-width" appearance="standard">
+      <input matInput placeholder="Naslov" formControlName="Title">
+    </mat-form-field>
+
+    <mat-form-field class="message-full-width" appearance="standard">
+      <input matInput placeholder="Sadržaj" formControlName="Content">
+    </mat-form-field>
+
+    <mat-form-field class="message-full-width" appearance="standard">
+      <input matInput placeholder="Link" formControlName="Link">
+    </mat-form-field>
+
+    <mat-form-field class="message-full-width" appearance="standard">
+      <mat-label>Uredite datum događaja</mat-label>
+      <input matInput [matDatepicker]="start" formControlName="DateOfEvent" required>
+      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+      <mat-datepicker #start></mat-datepicker>
+    </mat-form-field>
+
+  </mat-card>
+
+  <div class="sendmessagebtn" style="margin-top: 10px;">
+    <button mat-mini-fab color="white" matTooltip="Pošalji" type="submit">
+      <mat-icon aria-hidden="false" aria-label=" " class="sendicon">send</mat-icon>
+    </button>
+  </div>
+</form>

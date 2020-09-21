@@ -1,0 +1,39 @@
+<main id="news">
+  <div class="documentationContent">
+    <span *ngFor="let novost of News" class="dialogmessage">
+      <mat-card class="message-card">
+        <mat-card-title>
+          {{novost.Title}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          Datum: {{ novost.DateOfEvent | date:"mediumDate"  }}
+        </mat-card-subtitle>
+        <mat-card-content>
+          <div class="messagetext">
+            <mat-card>
+              {{novost.Content}}
+            </mat-card>
+            <div>
+              <p>
+                Link: <a [href]="novost.Link" target="_blank"> {{ novost.Link }}</a>
+              </p>
+            </div>
+          </div>
+          <div style="margin-top: 10px">
+            Objavljeno: {{ novost.DateNow | date:"medium" }}
+          </div>
+          <mat-card-actions>
+            <div class="allowbtn">
+              <button mat-button color="primary" (click)="editNews(novost)">
+                <fa-icon *ngIf="isAdmin" [icon]="faEdit" class="fa-lg"></fa-icon>
+              </button>
+              <button mat-button color="warn" (click)="deleteNews(novost.Id)">
+                <fa-icon *ngIf="isAdmin" [icon]="faTrash" class="fa-lg"></fa-icon>
+              </button>
+            </div>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+    </span>
+  </div>
+</main>

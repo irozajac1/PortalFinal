@@ -53,6 +53,8 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest();
             }
+            news.DateOfEvent = news.DateOfEvent.AddDays(1);
+            news.DateOfEvent = news.DateOfEvent.AddHours(-10);
             service.PostNew(news);
 
             return Ok();

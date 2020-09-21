@@ -1,0 +1,22 @@
+<form [formGroup]="editDocForm" (ngSubmit)="onSubmitDoc(this.data.doc.Id)">
+
+  <mat-form-field>
+    <mat-label>Naziv</mat-label>
+    <input matInput placeholder="{{this.data.doc.Title}}" value="{{this.data.doc.Title}}"
+      formControlName="Title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Grupa</mat-label>
+    <input matInput placeholder="{{this.data.doc.Group}}" value="{{this.data.doc.Group}}"
+      formControlName="Group">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Link</mat-label>
+    <input matInput placeholder="{{this.data.doc.Link}}" value="{{this.data.doc.Link}}" formControlName="Link">
+  </mat-form-field>
+
+  <button type="submit" mat-flat-button color="primary">Uredi</button>
+
+</form>

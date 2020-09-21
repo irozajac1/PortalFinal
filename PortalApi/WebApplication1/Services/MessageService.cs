@@ -56,7 +56,7 @@ namespace WebApplication1.Services
         public FileStreamResult DownloadFile(Guid id)
         {
             var attachment = attrepository.GetById(id);
-            var upload = _configuration.GetSection("Paths:Archive").Value + "\\Upload\\";
+            var upload = _configuration.GetSection("Paths:Archive").Value + "\\Messages\\";
             var filePath = Path.Combine(upload, attachment.AttachmentFileReference.ToString());
 
             //if (!System.IO.File.Exists(filePath))
@@ -133,7 +133,7 @@ namespace WebApplication1.Services
         public void SendMessage(MessageRequest messageRequest)
         {
             var attachmentList = new List<Attachment>();
-            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Upload\\";
+            var folderPath = _configuration.GetSection("Paths:Archive").Value + "\\Messages\\";
             var files = messageRequest.Attachments;
             if (files != null)
             {

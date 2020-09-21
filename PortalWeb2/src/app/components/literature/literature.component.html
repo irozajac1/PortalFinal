@@ -1,0 +1,38 @@
+<main>
+  <mat-card *ngFor="let literature of Literatures; let index = index">
+    <mat-card-header id="header">
+      <mat-card-title>{{ literature.Title }}</mat-card-title>
+      <mat-card-subtitle>Grupa: {{ literature.Group }} </mat-card-subtitle>
+    </mat-card-header>
+    <hr>
+    <mat-card-content>
+      <p>
+        <b *ngIf="literature.Links != null">
+          Link:
+        </b>
+        <span *ngFor="let link of literature.Links">
+          <a [href]="link.UrlLink" target="_blank"> {{ link.UrlLink }}</a>
+          <br>
+        </span>
+      </p>
+      <div>
+        <span id="chips" *ngIf="literature.Files != null">
+          <mat-chip-list id="chip" class="no-wrap">
+            <mat-chip><span>{{ literature.Files.AttachmentFileName }}</span>
+              <span id="downloadIcon" (click)="download(literature.Files.AttachmentId)">
+                <fa-icon [icon]="faDownload" class="fa-lg"></fa-icon>
+              </span></mat-chip>
+          </mat-chip-list>
+        </span>
+      </div>
+      <div class="allowbtn">
+        <button mat-button color="primary" (click)="updateLiterature(literature)">
+          <fa-icon *ngIf="isAdmin" [icon]="faEdit" class="fa-lg"></fa-icon>
+        </button>
+        <button mat-button color="warn" (click)="deleteLiterature(literature.Id)">
+          <fa-icon *ngIf="isAdmin" [icon]="faTrash" class="fa-lg"></fa-icon>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</main>

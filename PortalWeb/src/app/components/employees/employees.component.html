@@ -4,8 +4,9 @@
       <mat-card-title>{{ emp.Firstname }} {{ emp.Lastname }}</mat-card-title>
       <mat-card-subtitle>{{ emp.Department }}: {{ emp.Position }} </mat-card-subtitle>
     </mat-card-header>
-    <img *ngIf="emp.EmployeePicture" mat-card-image src="{{emp.EmployeePicture.AttachmentFileReference}}"
-      alt="{{emp.Firstname}} {{emp.Lastname}}">
+    <img *ngIf="emp.EmployeePicture" mat-card-image 
+    [src]="getImgs(emp.EmployeePicture.AttachmentId)"
+    alt="{{emp.Firstname}} {{emp.Lastname}}">
     <hr>
     <mat-card-content>
       <p>

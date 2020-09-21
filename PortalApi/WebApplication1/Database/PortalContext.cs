@@ -20,6 +20,6 @@ namespace WebApplication1.Database
         public DbSet<Attachment> Attachment { get; set; }
         public DbSet<Message> Message { get; set; }
         public DbSet<Comment> Comment { get; set; }
-
+        public DbSet<Link> Links { get; set; }
     }
 }
